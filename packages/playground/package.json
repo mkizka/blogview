@@ -1,0 +1,10 @@
+{
+  "name": "playground",
+  "private": true,
+  "scripts": {
+    "start": "blogview"
+  },
+  "dependencies": {
+    "blogview": "workspace:^0.0.1"
+  }
+}

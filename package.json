@@ -1,3 +1,6 @@
 {
-  "name": "blogview-workspace"
+  "name": "blogview-workspace",
+  "scripts": {
+    "build": "pnpm build --filter . ---parallel"
+  }
 }
