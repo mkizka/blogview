@@ -1,0 +1,6 @@
+{
+  "name": "blogview",
+  "dependencies": {
+    "rehype-hatena-card": "workspace:^0.0.1"
+  }
+}
