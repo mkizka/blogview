@@ -40,7 +40,7 @@
     "chokidar": "^3.5.2",
     "connect-history-api-fallback": "^1.6.0",
     "express": "^4.17.2",
-    "rehype-hatena-card": "workspace:^0.0.1",
+    "rehype-hatena-embed": "workspace:^0.0.1",
     "rehype-stringify": "^9.0.2",
     "remark-extract-frontmatter": "^3.2.0",
     "remark-frontmatter": "^4.0.1",

@@ -5,7 +5,7 @@ import remarkParse from "remark-parse";
 import remarkStringify from "remark-stringify";
 import remarkRehype from "remark-rehype";
 import remarkExtract from "remark-extract-frontmatter";
-import { rehypeHatenaCard } from "rehype-hatena-card";
+import { rehypeHatenaEmbed } from "rehype-hatena-embed";
 import yaml from "yaml";
 
 import { Frontmatter } from "../../common/types";
@@ -15,7 +15,7 @@ export async function md2html(md: string) {
     .use(remarkParse)
     .use(remarkFrontmatter)
     .use(remarkRehype)
-    .use(rehypeHatenaCard)
+    .use(rehypeHatenaEmbed)
     .use(rehypeStringify);
   return (await processor.process(md)).value as string;
 }

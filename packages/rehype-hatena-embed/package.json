@@ -1,5 +1,5 @@
 {
-  "name": "rehype-hatena-card",
+  "name": "rehype-hatena-embed",
   "type": "module",
   "main": "dist/index.js",
   "version": "0.0.1",
@@ -10,7 +10,6 @@
     "unist-util-visit": "^4.1.0"
   },
   "devDependencies": {
-    "@tsconfig/node16": "^1.0.2",
     "@types/hast": "^2.3.4",
     "typescript": "^4.5.4",
     "unified": "^10.1.1"

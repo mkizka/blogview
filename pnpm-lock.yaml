@@ -24,7 +24,7 @@ importers:
       react: ^17.0.2
       react-dom: ^17.0.2
       react-router-dom: ^6.2.1
-      rehype-hatena-card: workspace:^0.0.1
+      rehype-hatena-embed: workspace:^0.0.1
       rehype-stringify: ^9.0.2
       remark-extract-frontmatter: ^3.2.0
       remark-frontmatter: ^4.0.1
@@ -44,7 +44,7 @@ importers:
       chokidar: 3.5.2
       connect-history-api-fallback: 1.6.0
       express: 4.17.2
-      rehype-hatena-card: link:../rehype-hatena-card
+      rehype-hatena-embed: link:../rehype-hatena-embed
       rehype-stringify: 9.0.2
       remark-extract-frontmatter: 3.2.0
       remark-frontmatter: 4.0.1
@@ -76,9 +76,8 @@ importers:
       vite: 2.7.10
       wait-on: 6.0.0
 
-  packages/rehype-hatena-card:
+  packages/rehype-hatena-embed:
     specifiers:
-      '@tsconfig/node16': ^1.0.2
       '@types/hast': ^2.3.4
       typescript: ^4.5.4
       unified: ^10.1.1
@@ -86,7 +85,6 @@ importers:
     dependencies:
       unist-util-visit: 4.1.0
     devDependencies:
-      '@tsconfig/node16': 1.0.2
       '@types/hast': 2.3.4
       typescript: 4.5.4
       unified: 10.1.1
