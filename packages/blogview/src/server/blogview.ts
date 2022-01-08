@@ -3,8 +3,10 @@ import path from "path";
 
 import express from "express";
 import history from "connect-history-api-fallback";
+
 import { md2frontmatter, md2html } from "./utils/transformers.js";
 import { startLocalChangesWatcher, startServer } from "./utils/server.js";
+import { port } from "../common/config.js";
 
 const dirname = path.dirname(new URL(import.meta.url).pathname);
 const entryDir = path.join(process.cwd(), "entry");
@@ -42,7 +44,7 @@ const main = async () => {
       },
     })
   );
-  const server = await startServer(app, 8000);
+  const server = await startServer(app, port);
   await startLocalChangesWatcher(server, `${process.cwd()}/entry/*.md`);
 };
 

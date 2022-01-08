@@ -13,15 +13,12 @@ export async function startServer(
     server
       .listen(port)
       .once("listening", function () {
-        console.log(`👀 Preview: http://localhost:${port}`);
+        console.log(`プレビュー: http://localhost:${port}`);
         resolve(server);
       })
       .once("error", async function (err) {
         if (err.message.includes("EADDRINUSE")) {
-          console.log(
-            `💡 ポート${port}は既に使用されています。別のポートで起動中…`
-          );
-          const server = await startServer(app, port + 1);
+          console.log(`ポート${port}は既に使用されています`);
           resolve(server);
         } else {
           reject(err);

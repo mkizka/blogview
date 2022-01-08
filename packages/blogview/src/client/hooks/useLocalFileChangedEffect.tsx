@@ -1,4 +1,5 @@
 import React, { useEffect, useState, createContext, useContext } from "react";
+import { port } from "../../common/config";
 
 type ReloadedAt = number;
 
@@ -12,7 +13,7 @@ export const HotReloadRoot: React.VFC<{ children: React.ReactNode }> = (
   const [reloadedAt, setReloadedAt] = useState<ReloadedAt>(0);
 
   useEffect(() => {
-    const websocket = new WebSocket(`ws://${window.location.host}`);
+    const websocket = new WebSocket(`ws://${location.hostname}:${port}`);
 
     websocket.onmessage = () => {
       setReloadedAt(new Date().getTime());
