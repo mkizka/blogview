@@ -14,9 +14,9 @@ export async function md2html(md: string) {
   const processor = unified()
     .use(remarkParse)
     .use(remarkFrontmatter)
-    .use(remarkRehype, { allowDangerousHtml: true })
+    .use(remarkRehype)
     .use(rehypeHatenaCard)
-    .use(rehypeStringify, { allowDangerousHtml: true });
+    .use(rehypeStringify);
   return (await processor.process(md)).value as string;
 }
 
