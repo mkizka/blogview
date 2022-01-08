@@ -2,10 +2,10 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 
 import { useLocalFileChangedEffect } from "../hooks/useLocalFileChangedEffect";
-import { Entry } from "../../common/types";
+import { EntryResponse } from "../../common/types";
 
-function EntryPage() {
-  const [entry, setEntry] = useState<Entry | null>(null);
+export function EntryPage() {
+  const [entry, setEntry] = useState<EntryResponse | null>(null);
   const { slug } = useParams();
 
   useLocalFileChangedEffect(async () => {
@@ -17,5 +17,3 @@ function EntryPage() {
 
   return <div dangerouslySetInnerHTML={{ __html: entry.html }} />;
 }
-
-export { EntryPage };

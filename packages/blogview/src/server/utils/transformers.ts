@@ -17,7 +17,7 @@ export async function md2html(md: string) {
     .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeHatenaCard)
     .use(rehypeStringify, { allowDangerousHtml: true });
-  return (await processor.process(md)).value;
+  return (await processor.process(md)).value as string;
 }
 
 export async function md2frontmatter(md: string) {

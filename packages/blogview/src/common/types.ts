@@ -6,7 +6,12 @@ export type Frontmatter = {
   title: string;
 };
 
-export type Entry = {
+export type EntryResponse = {
   html: string;
   meta: Frontmatter;
 };
+
+export type EntryAllResponse = {
+  slug: string;
+  meta: Frontmatter;
+}[];
