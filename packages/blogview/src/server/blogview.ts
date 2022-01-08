@@ -19,7 +19,7 @@ export async function getEntryAll(req: express.Request, res: express.Response) {
     path.join(process.cwd(), "entry", entries[0]),
     "utf-8"
   );
-  const html = md2html(entry);
+  const html = await md2html(entry);
   res.json({ article: html });
 }
 
@@ -27,8 +27,6 @@ const main = async () => {
   const app = express();
   app.get(`/api/entry`, getEntryAll);
   app.get(`/api/entry/:slug`, getEntry);
-
-  // serve static files built by vite
   app.use(history());
   app.use(
     express.static(path.join(dirname, "..", "client"), {
@@ -37,7 +35,6 @@ const main = async () => {
       },
     })
   );
-
   createServer(app).listen(8000);
 };
 
