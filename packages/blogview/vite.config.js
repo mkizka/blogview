@@ -4,12 +4,13 @@ import path from "path";
 
 const srcDirRoot = "src/client";
 const distDirRoot = "dist/client";
+const dirname = path.dirname(new URL(import.meta.url).pathname);
 
 export default defineConfig({
-  root: path.join(__dirname, srcDirRoot),
-  publicDir: path.join(__dirname, `${srcDirRoot}/public`),
+  root: path.join(dirname, srcDirRoot),
+  publicDir: path.join(dirname, `${srcDirRoot}/public`),
   build: {
-    outDir: path.join(__dirname, distDirRoot),
+    outDir: path.join(dirname, distDirRoot),
   },
   plugins: [react()],
   server: {
@@ -20,7 +21,7 @@ export default defineConfig({
       },
     },
     fsServe: {
-      root: path.join(__dirname, ".."),
+      root: path.join(dirname, ".."),
     },
   },
 });
