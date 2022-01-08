@@ -13,7 +13,7 @@ export async function startServer(
     server
       .listen(port)
       .once("listening", function () {
-        console.log(`プレビュー: http://localhost:${port}`);
+        console.log(`http://localhost:${port} でプレビュー開始`);
         resolve(server);
       })
       .once("error", async function (err) {

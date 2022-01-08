@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { useLocalFileChangedEffect } from "../hooks/useLocalFileChangedEffect";
 import { EntryAllResponse } from "../../common/types";
