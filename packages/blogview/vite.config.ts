@@ -4,13 +4,12 @@ import path from "path";
 
 const srcDirRoot = "src/client";
 const distDirRoot = "dist/client";
-const dirname = path.dirname(new URL(import.meta.url).pathname);
 
 export default defineConfig({
-  root: path.join(dirname, srcDirRoot),
-  publicDir: path.join(dirname, `${srcDirRoot}/public`),
+  root: path.join(__dirname, srcDirRoot),
+  publicDir: path.join(__dirname, `${srcDirRoot}/public`),
   build: {
-    outDir: path.join(dirname, distDirRoot),
+    outDir: path.join(__dirname, distDirRoot),
   },
   plugins: [react()],
   server: {
@@ -19,9 +18,6 @@ export default defineConfig({
       "^/api/.*": {
         target: "http://localhost:8000",
       },
-    },
-    fsServe: {
-      root: path.join(dirname, ".."),
     },
   },
 });
