@@ -8,6 +8,8 @@ import remarkExtract from "remark-extract-frontmatter";
 import { rehypeHatenaCard } from "rehype-hatena-card";
 import yaml from "yaml";
 
+import { Frontmatter } from "../../common/types";
+
 export async function md2html(md: string) {
   const processor = unified()
     .use(remarkParse)
@@ -18,19 +20,11 @@ export async function md2html(md: string) {
   return (await processor.process(md)).value;
 }
 
-export type Frontmatter = {
-  categories: string[];
-  date: string;
-  draft: boolean;
-  id: string;
-  title: string;
-};
-
-export function md2frontmatter(md: string) {
+export async function md2frontmatter(md: string) {
   const processor = unified()
     .use(remarkParse)
     .use(remarkStringify)
     .use(remarkFrontmatter)
     .use(remarkExtract, { yaml: yaml.parse });
-  return processor.processSync(md).data as Frontmatter;
+  return (await processor.process(md)).data as Frontmatter;
 }

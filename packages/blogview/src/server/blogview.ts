@@ -1,15 +1,22 @@
 import fs from "fs";
 import path from "path";
-import { createServer } from "http";
 
 import express from "express";
 import history from "connect-history-api-fallback";
-import { md2html } from "./utils/transformers.js";
+import { md2frontmatter, md2html } from "./utils/transformers.js";
+import { startLocalChangesWatcher, startServer } from "./utils/server.js";
 
 const dirname = path.dirname(new URL(import.meta.url).pathname);
+const entryDir = path.join(process.cwd(), "entry");
 
-export function getEntry(req: express.Request, res: express.Response) {
-  res.json({ article: null });
+export async function getEntry(req: express.Request, res: express.Response) {
+  const entry = fs.readFileSync(
+    path.join(entryDir, `${req.params.slug}.md`),
+    "utf-8"
+  );
+  const meta = await md2frontmatter(entry);
+  const html = await md2html(entry);
+  res.json({ html, meta });
 }
 
 export async function getEntryAll(req: express.Request, res: express.Response) {
@@ -35,7 +42,8 @@ const main = async () => {
       },
     })
   );
-  createServer(app).listen(8000);
+  const server = await startServer(app, 8000);
+  await startLocalChangesWatcher(server, `${process.cwd()}/entry/*.md`);
 };
 
 main();
