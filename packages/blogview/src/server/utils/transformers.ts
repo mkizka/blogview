@@ -5,7 +5,7 @@ import remarkParse from "remark-parse";
 import remarkStringify from "remark-stringify";
 import remarkRehype from "remark-rehype";
 import remarkExtract from "remark-extract-frontmatter";
-import { rehypeHatenaEmbed } from "rehype-hatena-embed";
+import { rehypeHatenaEmbed } from "@mkizka/rehype-hatena-embed";
 import yaml from "yaml";
 
 import { Frontmatter } from "../../common/types";
