@@ -8,6 +8,7 @@ importers:
   packages/blogview:
     specifiers:
       '@exampledev/new.css': ^1.1.3
+      '@mkizka/blogview-utils': workspace:^0.0.1
       '@mkizka/rehype-hatena-embed': workspace:^0.0.1
       '@swc/core': ^1.2.127
       '@types/connect-history-api-fallback': ^1.3.5
@@ -25,35 +26,20 @@ importers:
       react: ^17.0.2
       react-dom: ^17.0.2
       react-router-dom: ^6.2.1
-      rehype-stringify: ^9.0.2
-      remark-extract-frontmatter: ^3.2.0
-      remark-frontmatter: ^4.0.1
-      remark-parse: ^10.0.1
-      remark-rehype: ^10.1.0
-      remark-stringify: ^10.0.2
       rimraf: ^3.0.2
       rollup-plugin-string: ^3.0.0
       ts-node: ^10.4.0
       typescript: ^4.5.4
-      unified: ^10.1.1
       vite: ^2.7.10
       wait-on: ^6.0.0
       ws: ^8.4.0
-      yaml: ^1.10.2
     dependencies:
+      '@mkizka/blogview-utils': link:../blogview-utils
       '@mkizka/rehype-hatena-embed': link:../rehype-hatena-embed
       chokidar: 3.5.2
       connect-history-api-fallback: 1.6.0
       express: 4.17.2
-      rehype-stringify: 9.0.2
-      remark-extract-frontmatter: 3.2.0
-      remark-frontmatter: 4.0.1
-      remark-parse: 10.0.1
-      remark-rehype: 10.1.0
-      remark-stringify: 10.0.2
-      unified: 10.1.1
       ws: 8.4.0
-      yaml: 1.10.2
     devDependencies:
       '@exampledev/new.css': 1.1.3
       '@swc/core': 1.2.127
@@ -75,6 +61,28 @@ importers:
       typescript: 4.5.4
       vite: 2.7.10
       wait-on: 6.0.0
+
+  packages/blogview-utils:
+    specifiers:
+      '@mkizka/rehype-hatena-embed': workspace:^0.0.1
+      rehype-stringify: ^9.0.2
+      remark-extract-frontmatter: ^3.2.0
+      remark-frontmatter: ^4.0.1
+      remark-parse: ^10.0.1
+      remark-rehype: ^10.1.0
+      remark-stringify: ^10.0.2
+      unified: ^10.1.1
+      yaml: ^1.10.2
+    dependencies:
+      '@mkizka/rehype-hatena-embed': link:../rehype-hatena-embed
+      rehype-stringify: 9.0.2
+      remark-extract-frontmatter: 3.2.0
+      remark-frontmatter: 4.0.1
+      remark-parse: 10.0.1
+      remark-rehype: 10.1.0
+      remark-stringify: 10.0.2
+      unified: 10.1.1
+      yaml: 1.10.2
 
   packages/blogview-vscode:
     specifiers:
