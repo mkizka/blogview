@@ -1,17 +1,11 @@
-export type Frontmatter = {
-  categories: string[];
-  date: string;
-  draft: boolean;
-  id: string;
-  title: string;
-};
+import { BlogMeta } from "@mkizka/blogview-utils";
 
 export type EntryResponse = {
   html: string;
-  meta: Frontmatter;
+  meta: BlogMeta;
 };
 
 export type EntryAllResponse = {
   slug: string;
-  meta: Frontmatter;
+  meta: BlogMeta;
 }[];

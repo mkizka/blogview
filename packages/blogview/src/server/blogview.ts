@@ -3,8 +3,8 @@ import path from "path";
 
 import express from "express";
 import history from "connect-history-api-fallback";
+import { md2meta, md2html } from "@mkizka/blogview-utils";
 
-import { md2frontmatter, md2html } from "./utils/transformers.js";
 import { startLocalChangesWatcher, startServer } from "./utils/server.js";
 import { port } from "../common/config.js";
 import { EntryAllResponse, EntryResponse } from "../common/types.js";
@@ -20,7 +20,7 @@ export async function getEntry(
     path.join(entryDir, `${req.params.slug}.md`),
     "utf-8"
   );
-  const meta = await md2frontmatter(entry);
+  const meta = await md2meta(entry);
   const html = await md2html(entry);
   res.json({ html, meta });
 }
@@ -34,7 +34,7 @@ export async function getEntryAll(
     const entryRaw = fs.readFileSync(path.join(entryDir, entryFile), "utf-8");
     return {
       slug: entryFile.split(".")[0],
-      meta: await md2frontmatter(entryRaw),
+      meta: await md2meta(entryRaw),
     };
   });
   const entryMetas = await Promise.all(entryMetaPromises);
