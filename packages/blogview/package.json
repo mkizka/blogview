@@ -1,5 +1,6 @@
 {
   "name": "@mkizka/blogview",
+  "description": "Serves and live-reload markdown files for blog.",
   "version": "0.0.1",
   "type": "module",
   "bin": {
@@ -50,5 +51,17 @@
     "unified": "^10.1.1",
     "ws": "^8.4.0",
     "yaml": "^1.10.2"
-  }
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mkizka/blogview.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mkizka/blogview/issues"
+  },
+  "homepage": "https://github.com/mkizka/blogview",
+  "license": "ISC"
 }
