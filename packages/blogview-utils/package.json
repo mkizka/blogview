@@ -10,15 +10,15 @@
     "build:cjs": "tsc -p tsconfig.cjs.json"
   },
   "dependencies": {
-    "@mkizka/rehype-hatena-embed": "workspace:^0.0.1",
-    "rehype-stringify": "^9.0.2",
-    "remark-extract-frontmatter": "^3.2.0",
-    "remark-frontmatter": "^4.0.1",
-    "remark-parse": "^10.0.1",
-    "remark-rehype": "^10.1.0",
-    "remark-stringify": "^10.0.2",
-    "unified": "^10.1.1",
-    "yaml": "^1.10.2"
+    "markdown-it": "^12.3.2",
+    "remark": "13.0.0",
+    "remark-frontmatter": "3.0.0",
+    "remark-parse-frontmatter": "^1.0.3"
+  },
+  "devDependencies": {
+    "@types/markdown-it": "^12.2.3",
+    "@types/revalidator": "^0.3.8",
+    "npm-run-all": "^4.1.5"
   },
   "files": [
     "dist"
@@ -34,8 +34,5 @@
   "license": "ISC",
   "publishConfig": {
     "access": "public"
-  },
-  "devDependencies": {
-    "npm-run-all": "^4.1.5"
   }
 }
