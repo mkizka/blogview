@@ -1,5 +1,5 @@
 {
-  "name": "rehype-hatena-embed",
+  "name": "@mkizka/rehype-hatena-embed",
   "type": "module",
   "main": "dist/index.js",
   "version": "0.0.1",

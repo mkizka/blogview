@@ -1,5 +1,5 @@
 {
-  "name": "blogview",
+  "name": "@mkizka/blogview",
   "version": "0.0.1",
   "type": "module",
   "bin": {
