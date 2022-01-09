@@ -1,11 +1,13 @@
 {
   "name": "@mkizka/blogview-utils",
   "description": "Utilities for blogsync and blogsync-vscode",
-  "type": "module",
-  "main": "dist/index.js",
+  "main": "dist/cjs/index.js",
+  "module": "dist/index.js",
   "version": "0.0.1",
   "scripts": {
-    "build": "tsc"
+    "build": "run-p -l build:*",
+    "build:esm": "tsc",
+    "build:cjs": "tsc -p tsconfig.cjs.json"
   },
   "dependencies": {
     "@mkizka/rehype-hatena-embed": "workspace:^0.0.1",
@@ -32,5 +34,8 @@
   "license": "ISC",
   "publishConfig": {
     "access": "public"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
   }
 }
