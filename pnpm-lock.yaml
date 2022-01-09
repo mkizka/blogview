@@ -65,6 +65,7 @@ importers:
   packages/blogview-utils:
     specifiers:
       '@mkizka/rehype-hatena-embed': workspace:^0.0.1
+      npm-run-all: ^4.1.5
       rehype-stringify: ^9.0.2
       remark-extract-frontmatter: ^3.2.0
       remark-frontmatter: ^4.0.1
@@ -83,6 +84,8 @@ importers:
       remark-stringify: 10.0.2
       unified: 10.1.1
       yaml: 1.10.2
+    devDependencies:
+      npm-run-all: 4.1.5
 
   packages/blogview-vscode:
     specifiers:
