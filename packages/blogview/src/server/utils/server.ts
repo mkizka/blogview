@@ -13,7 +13,7 @@ export async function startServer(
     server
       .listen(port)
       .once("listening", function () {
-        console.log(`http://localhost:${port} でプレビュー開始`);
+        console.log(`プレビュー: http://localhost:${port}`);
         resolve(server);
       })
       .once("error", async function (err) {
@@ -33,8 +33,8 @@ export async function startLocalChangesWatcher(
 ) {
   const wss = new WebSocketServer({ server });
   const watcher = chokidar.watch(watchPathGlob);
-  watcher.on("change", () => {
-    console.log("ファイルが変更されました");
+  watcher.on("change", (path) => {
+    console.log(`ファイルが変更されました: ${path}`);
     wss.clients.forEach((client) => client.send("Should refresh"));
   });
   process.on("SIGINT", () => {
