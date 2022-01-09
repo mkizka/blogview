@@ -1,26 +1,65 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
-import * as vscode from 'vscode';
+import * as vscode from "vscode";
 
-// this method is called when your extension is activated
-// your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
-	
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "blogview-vscode" is now active!');
+  //パネルを作成する
+  let panelGenerator = vscode.commands.registerCommand(
+    "blogview-vscode.preview",
+    () => {
+      const panel = vscode.window.createWebviewPanel(
+        "openPreview",
+        "Preview test",
+        vscode.ViewColumn.Two,
+        { enableScripts: true }
+      );
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('blogview-vscode.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from blogview-vscode!');
-	});
+      //エディタの内容を取得、パネルに反映
+      const updateWebview = () => {
+        panel.webview.html = generatePanelContent();
+      };
 
-	context.subscriptions.push(disposable);
+      //イベントリスナ
+      let activeEditor = vscode.window.activeTextEditor;
+
+      //テキストが変動したら更新
+      vscode.workspace.onDidChangeTextDocument((event) => {
+        if (activeEditor && event.document === activeEditor.document) {
+          updateWebview();
+        }
+      });
+
+      //テキストがセーブされたとき更新
+      vscode.workspace.onDidSaveTextDocument((event) => {
+        if (activeEditor && event === activeEditor.document) {
+          updateWebview();
+        }
+      });
+
+      //カーソルが移動したら更新
+      vscode.window.onDidChangeTextEditorSelection((event) => {
+        if (activeEditor && event.textEditor === activeEditor) {
+          updateWebview();
+        }
+      });
+    }
+  );
+  context.subscriptions.push(panelGenerator);
 }
 
-// this method is called when your extension is deactivated
+function generatePanelContent() {
+  let activeEditor = vscode.window.activeTextEditor;
+  let text: string = "";
+  if (activeEditor) {
+    text = activeEditor.document.getText();
+  }
+  return `<!DOCTYPE html>
+  <html lang="jp">
+    <head>
+      <title>Example Webview</title>
+    </head>
+    <body>
+    ${text}
+    </body>
+  </html> `;
+}
+
 export function deactivate() {}

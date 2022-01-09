@@ -10,14 +10,14 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:blogview-vscode.helloWorld"
+    "onCommand:blogview-vscode.preview"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "blogview-vscode.helloWorld",
-        "title": "Hello World"
+        "command": "blogview-vscode.preview",
+        "title": "Preview"
       }
     ]
   },
