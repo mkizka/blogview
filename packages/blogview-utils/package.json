@@ -1,0 +1,36 @@
+{
+  "name": "@mkizka/blogview-utils",
+  "description": "Utilities for blogsync and blogsync-vscode",
+  "type": "module",
+  "main": "dist/index.js",
+  "version": "0.0.1",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@mkizka/rehype-hatena-embed": "workspace:^0.0.1",
+    "rehype-stringify": "^9.0.2",
+    "remark-extract-frontmatter": "^3.2.0",
+    "remark-frontmatter": "^4.0.1",
+    "remark-parse": "^10.0.1",
+    "remark-rehype": "^10.1.0",
+    "remark-stringify": "^10.0.2",
+    "unified": "^10.1.1",
+    "yaml": "^1.10.2"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mkizka/blogview.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mkizka/blogview/issues"
+  },
+  "homepage": "https://github.com/mkizka/blogview",
+  "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  }
+}

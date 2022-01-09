@@ -4,11 +4,9 @@ import remarkFrontmatter from "remark-frontmatter";
 import remarkParse from "remark-parse";
 import remarkStringify from "remark-stringify";
 import remarkRehype from "remark-rehype";
-import remarkExtract from "remark-extract-frontmatter";
+import * as remarkExtract from "remark-extract-frontmatter";
 import { rehypeHatenaEmbed } from "@mkizka/rehype-hatena-embed";
-import yaml from "yaml";
-
-import { Frontmatter } from "../../common/types";
+import { parse as yaml } from "yaml";
 
 export async function md2html(md: string) {
   const processor = unified()
@@ -20,11 +18,19 @@ export async function md2html(md: string) {
   return (await processor.process(md)).value as string;
 }
 
-export async function md2frontmatter(md: string) {
+export type BlogMeta = {
+  categories: string[];
+  date: string;
+  draft: boolean;
+  id: string;
+  title: string;
+};
+
+export async function md2meta(md: string) {
   const processor = unified()
     .use(remarkParse)
     .use(remarkStringify)
     .use(remarkFrontmatter)
-    .use(remarkExtract, { yaml: yaml.parse });
-  return (await processor.process(md)).data as Frontmatter;
+    .use(remarkExtract, { yaml });
+  return (await processor.process(md)).data as BlogMeta;
 }
