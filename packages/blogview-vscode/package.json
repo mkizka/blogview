@@ -1,6 +1,7 @@
 {
   "name": "blogview-vscode",
   "displayName": "Blogview",
+  "publisher": "mkizka",
   "private": true,
   "description": "Markdownプレビュー時に一部のはてな記法を変換する拡張機能",
   "version": "0.0.1",
@@ -16,7 +17,7 @@
     "markdown.markdownItPlugins": true
   },
   "scripts": {
-    "vscode:prepublish": "pnpm compile",
+    "vscode:prepublish": "yarn compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./"
   },
@@ -27,7 +28,7 @@
     "vsce": "^2.6.3"
   },
   "dependencies": {
-    "@mkizka/markdown-it-hatena": "workspace:^0.0.1"
+    "@mkizka/markdown-it-hatena": "link:../markdown-it-hatena"
   },
   "repository": {
     "type": "git",
