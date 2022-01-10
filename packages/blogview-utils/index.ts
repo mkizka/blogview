@@ -2,9 +2,10 @@ import * as markdownIt from "markdown-it";
 import * as remark from "remark";
 import * as remarkFrontmatter from "remark-frontmatter";
 import * as remarkParseFrontmatter from "remark-parse-frontmatter";
+import { markdownItHatena } from "@mkizka/markdown-it-hatena";
 
 export async function md2html(md: string) {
-  return markdownIt().render(md);
+  return markdownIt().use(markdownItHatena).render(md);
 }
 
 export type BlogMeta = {

@@ -1,0 +1,30 @@
+{
+  "name": "@mkizka/markdown-it-hatena",
+  "description": "markdown-it plugin to converts commands of HatenaBlog",
+  "main": "dist/index.js",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@types/markdown-it-container": "^2.0.4",
+    "markdown-it": "^12.3.2",
+    "typescript": "^4.5.4"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mkizka/blogview.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mkizka/blogview/issues"
+  },
+  "homepage": "https://github.com/mkizka/blogview",
+  "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  }
+}

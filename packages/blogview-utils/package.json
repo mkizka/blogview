@@ -5,11 +5,15 @@
   "module": "dist/index.js",
   "version": "0.0.1",
   "scripts": {
+    "dev": "run-p -l dev:*",
+    "dev:esm": "tsc -w",
+    "dev:cjs": "tsc -p tsconfig.cjs.json -w",
     "build": "run-p -l build:*",
     "build:esm": "tsc",
     "build:cjs": "tsc -p tsconfig.cjs.json"
   },
   "dependencies": {
+    "@mkizka/markdown-it-hatena": "workspace:^0.0.1",
     "markdown-it": "^12.3.2",
     "remark": "13.0.0",
     "remark-frontmatter": "3.0.0",

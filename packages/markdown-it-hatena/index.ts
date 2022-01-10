@@ -1,7 +1,7 @@
-import type * as MarkdownIt from "markdown-it";
+import type { PluginSimple } from "markdown-it";
 
 function getHatenaParams(text: string) {
-  const matched = /^(?<url>.*?)(?<labels>(:\w+)*)$/g.exec(text);
+  const matched = /\[(?<url>.*?)(?<labels>(:\w+)*)\]/g.exec(text);
   if (matched) {
     return {
       url: matched.groups!.url,
@@ -11,7 +11,7 @@ function getHatenaParams(text: string) {
   return null;
 }
 
-const markdownItHatena: MarkdownIt.PluginSimple = (md) => {
+const markdownItHatena: PluginSimple = (md) => {
   const { text: defaultTextRenderer } = md.renderer.rules;
   md.renderer.rules.text = (tokens, idx, ...args) => {
     const token = tokens[idx];
@@ -24,15 +24,9 @@ const markdownItHatena: MarkdownIt.PluginSimple = (md) => {
           style="display: block; width: 100%; height: 155px; max-width: 500px; margin: 10px 0px;"
         ></iframe>`;
     } else {
-      return defaultTextRenderer!(tokens, idx, ...args);
+      return defaultTextRenderer(tokens, idx, ...args);
     }
   };
 };
 
-export function activate() {
-  return {
-    extendMarkdownIt(md: MarkdownIt) {
-      return md.use(markdownItHatena);
-    },
-  };
-}
+export default markdownItHatena;
