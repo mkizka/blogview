@@ -1,22 +1,17 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import "@exampledev/new.css";
+import { StrictMode } from "react";
+import { render } from "react-dom";
+import { HelmetProvider } from "react-helmet-async";
 
+import { App } from "./App";
 import { HotReloadRoot } from "./hooks/useLocalFileChangedEffect";
-import { TopPage } from "./pages/top";
-import { EntryPage } from "./pages/entry";
 
-ReactDOM.render(
-  <React.StrictMode>
+render(
+  <StrictMode>
     <HotReloadRoot>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<TopPage />} />
-          <Route path="/entry/:slug" element={<EntryPage />} />
-        </Routes>
-      </BrowserRouter>
+      <HelmetProvider>
+        <App />
+      </HelmetProvider>
     </HotReloadRoot>
-  </React.StrictMode>,
+  </StrictMode>,
   document.getElementById("root")
 );

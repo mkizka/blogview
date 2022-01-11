@@ -6,12 +6,14 @@ import history from "connect-history-api-fallback";
 import { startLocalChangesWatcher, startServer } from "./utils/server.js";
 import { port } from "../common/config.js";
 import { entryRouter } from "./api/entry.js";
+import { configRouter } from "./api/config.js";
 
 const dirname = path.dirname(new URL(import.meta.url).pathname);
 
 const main = async () => {
   const app = express();
   app.use(`/api/entry`, entryRouter);
+  app.use(`/api/config`, configRouter);
   app.use(history());
   app.use(
     express.static(path.join(dirname, "..", "client"), {

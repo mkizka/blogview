@@ -9,3 +9,7 @@ export type EntryAllResponse = {
   slug: string;
   meta: BlogMeta;
 }[];
+
+export type ConfigResponse = {
+  styles: string[];
+};
