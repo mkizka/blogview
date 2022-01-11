@@ -1,0 +1,23 @@
+name: "パッケージを公開"
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  push:
+    name: "pnpm -r publish"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 6
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          cache: "pnpm"
+      - run: pnpm i && pnpm -r publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
