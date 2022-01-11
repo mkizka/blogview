@@ -17,6 +17,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 16
+          registry-url: "https://registry.npmjs.org"
           cache: "pnpm"
       - run: pnpm i && pnpm -r publish
         env:
