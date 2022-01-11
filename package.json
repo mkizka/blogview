@@ -1,5 +1,6 @@
 {
   "name": "blogview-workspace",
+  "private": true,
   "scripts": {
     "dev": "pnpm dev --filter . --parallel",
     "build": "pnpm build --filter ."
