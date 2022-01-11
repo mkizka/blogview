@@ -16,7 +16,6 @@ $ blogview
 現在のディレクトリに`blogview.json`というファイルを置くと、プレビューに使用するCSSを指定出来ます
 
 ```json
-// blogview.json
 {
   "styles": ["style.css"]
 }

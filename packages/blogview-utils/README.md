@@ -1,4 +1,4 @@
-# blogview
+# blogview-utils
 `@mkizka/blogview`で使用するユーティリティ
 
 ## インストール
