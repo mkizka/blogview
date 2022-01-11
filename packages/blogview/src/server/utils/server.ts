@@ -19,10 +19,8 @@ export async function startServer(
       .once("error", async function (err) {
         if (err.message.includes("EADDRINUSE")) {
           console.log(`ポート${port}は既に使用されています`);
-          resolve(server);
-        } else {
-          reject(err);
         }
+        reject(err);
       });
   });
 }
