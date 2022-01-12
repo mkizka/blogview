@@ -26,12 +26,14 @@ const markdownItHatena: MarkdownIt.PluginSimple = (md) => {
     const token = tokens[idx];
     const params = parseHatenaNotation(token.content);
     if (params?.labels.includes("embed")) {
-      return `<iframe
-          src="https://hatenablog-parts.com/embed?url=${params.url}"
-          scrolling="no"
-          frameborder="0"
-          style="display: block; width: 100%; height: 155px; max-width: 500px; margin: 10px 0px;"
-        ></iframe>`;
+      return [
+        "<iframe",
+        `src="https://hatenablog-parts.com/embed?url=${params.url}"`,
+        `scrolling="no"`,
+        `frameborder="0"`,
+        `style="display: block; width: 100%; height: 155px; max-width: 500px; margin: 10px 0px;"`,
+        `></iframe>`,
+      ].join(" ");
     } else {
       return md.renderer.rules.text!(tokens, idx, ...args);
     }
