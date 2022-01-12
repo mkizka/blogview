@@ -4,11 +4,10 @@ import { embedPlugin } from "./embed";
 
 const md = new MarkdownIt().use(embedPlugin);
 
-test("埋め込み記法(:embed)の対応", () => {
+test("埋め込み記法[{url}:embed]の対応", () => {
   const src = "[https://github.com:embed]";
   const rendered = md.render(src);
   const $ = cheerio.load(rendered);
-  console.log(rendered);
   expect($("iframe").length).toBe(1);
 });
 
