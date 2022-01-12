@@ -8,3 +8,4 @@ npm install @mkizka/markdown-it-hatena
 
 ## 対応状況
 - `:embed`
+- `:contents`
