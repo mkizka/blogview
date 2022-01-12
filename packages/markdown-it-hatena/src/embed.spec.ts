@@ -1,8 +1,8 @@
 import * as MarkdownIt from "markdown-it";
 import cheerio from "cheerio";
-import * as markdownItHatena from "./index";
+import { embedPlugin } from "./embed";
 
-const md = new MarkdownIt().use(markdownItHatena);
+const md = new MarkdownIt().use(embedPlugin);
 
 test("埋め込み記法(:embed)の対応", () => {
   const src = "[https://github.com:embed]";
