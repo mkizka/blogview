@@ -2,7 +2,9 @@
   "name": "blogview-workspace",
   "private": true,
   "scripts": {
-    "dev": "pnpm dev --filter . --parallel",
-    "build": "pnpm build --filter ."
+    "dev": "pnpm dev --filter . --parallel"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.19.0"
   }
 }
