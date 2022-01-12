@@ -64,7 +64,7 @@ importers:
 
   packages/blogview-utils:
     specifiers:
-      '@mkizka/markdown-it-hatena': workspace:^0.0.2
+      '@mkizka/markdown-it-hatena': workspace:^0.0.3
       '@types/markdown-it': ^12.2.3
       '@types/revalidator': ^0.3.8
       markdown-it: ^12.3.2
