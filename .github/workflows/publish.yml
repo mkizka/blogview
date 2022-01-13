@@ -40,3 +40,14 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish blogview-vscode
+        run: |
+          cd packages/blogview-vscode
+          PUBLISHED=$(pnpm vsce search blogview-vscode --json | jq -r '.[].versions[0].version')
+          CURRENT=$(cat packages/blogview-vscode/package.json | jq -r '.version')
+          if [ "$PUBLISHED" != "$CURRENT" ]; then
+            pnpm release -p "$VSCE_TOKEN"
+          fi
+        env:
+          VSCE_TOKEN: ${{ secrets.VSCE_TOKEN }}
