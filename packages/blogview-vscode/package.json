@@ -17,9 +17,10 @@
     "markdown.markdownItPlugins": true
   },
   "scripts": {
-    "vscode:prepublish": "yarn build",
+    "vscode:prepublish": "pnpm build",
     "build": "esbuild ./src/extension.ts --bundle --outdir=out --external:vscode --format=cjs --platform=node",
-    "dev": "yarn build --watch"
+    "dev": "pnpm build --watch",
+    "package": "pnpm vsce package --no-dependencies"
   },
   "devDependencies": {
     "@types/node": "16.x",

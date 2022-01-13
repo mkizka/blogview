@@ -9,8 +9,8 @@
     "test": "turbo run test",
     "dev": "turbo run dev",
     "format": "prettier -w .",
-    "version-packages": "changeset version && yarn format",
-    "release": "yarn build && changeset publish"
+    "version-packages": "changeset version && pnpm format",
+    "release": "pnpm build && pnpm -r publish"
   },
   "devDependencies": {
     "@changesets/cli": "^2.19.0",
