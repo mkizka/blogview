@@ -1,5 +1,11 @@
 # blogview-vscode
 
+## 0.0.5
+
+### Patch Changes
+
+- 軽微な修正
+
 ## 0.0.4
 
 ### Patch Changes

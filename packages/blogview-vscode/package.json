@@ -4,7 +4,7 @@
   "publisher": "mkizka",
   "private": true,
   "description": "Markdownプレビュー時に一部のはてな記法を変換する拡張機能",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "engines": {
     "vscode": "^1.63.0"
   },
@@ -20,7 +20,8 @@
     "vscode:prepublish": "pnpm build",
     "build": "esbuild ./src/extension.ts --bundle --outdir=dist --external:vscode --format=cjs --platform=node --minify",
     "dev": "pnpm build --watch",
-    "package": "pnpm vsce package --no-dependencies"
+    "package": "pnpm vsce package --no-dependencies",
+    "release": "pnpm vsce publish --no-dependencies"
   },
   "devDependencies": {
     "@types/node": "16.x",
