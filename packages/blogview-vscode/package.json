@@ -28,7 +28,7 @@
     "vsce": "^2.6.3"
   },
   "dependencies": {
-    "@mkizka/markdown-it-hatena": "link:../markdown-it-hatena"
+    "@mkizka/markdown-it-hatena": "^0.1.0"
   },
   "repository": {
     "type": "git",
