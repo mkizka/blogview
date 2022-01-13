@@ -4,7 +4,7 @@
   "publisher": "mkizka",
   "private": true,
   "description": "Markdownプレビュー時に一部のはてな記法を変換する拡張機能",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.63.0"
   },
@@ -17,9 +17,9 @@
     "markdown.markdownItPlugins": true
   },
   "scripts": {
-    "vscode:prepublish": "yarn compile",
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./"
+    "vscode:prepublish": "yarn build",
+    "build": "tsc",
+    "dev": "tsc -w"
   },
   "devDependencies": {
     "@types/node": "16.x",

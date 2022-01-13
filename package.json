@@ -1,10 +1,38 @@
 {
   "name": "blogview-workspace",
   "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
-    "dev": "pnpm dev --filter . --parallel"
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "dev": "turbo run dev"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.19.0"
+    "@changesets/cli": "^2.19.0",
+    "turbo": "^1.0.26"
+  },
+  "turbo": {
+    "baseBranch": "origin/main",
+    "pipeline": {
+      "build": {
+        "dependsOn": [
+          "^build"
+        ],
+        "outputs": [
+          "dist/**",
+          "out/**"
+        ]
+      },
+      "test": {
+        "dependsOn": [
+          "^build"
+        ]
+      },
+      "dev": {
+        "cache": false
+      }
+    }
   }
 }
