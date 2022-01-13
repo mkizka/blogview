@@ -36,7 +36,7 @@
     "url": "https://github.com/mkizka/blogview/issues"
   },
   "homepage": "https://github.com/mkizka/blogview",
-  "license": "ISC",
+  "license": "MIT",
   "publishConfig": {
     "access": "public"
   }
