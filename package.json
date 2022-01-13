@@ -8,6 +8,8 @@
     "build": "turbo run build",
     "test": "turbo run test",
     "dev": "turbo run dev",
+    "format": "prettier -w .",
+    "version-packages": "changeset version && yarn format",
     "release": "yarn build && changeset publish"
   },
   "devDependencies": {
