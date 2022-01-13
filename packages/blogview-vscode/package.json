@@ -18,12 +18,13 @@
   },
   "scripts": {
     "vscode:prepublish": "yarn build",
-    "build": "tsc",
-    "dev": "tsc -w"
+    "build": "esbuild ./src/extension.ts --bundle --outdir=out --external:vscode --format=cjs --platform=node",
+    "dev": "yarn build --watch"
   },
   "devDependencies": {
     "@types/node": "16.x",
     "@types/vscode": "^1.63.0",
+    "esbuild": "^0.14.11",
     "typescript": "^4.4.4",
     "vsce": "^2.6.3"
   },
