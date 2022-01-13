@@ -12,13 +12,13 @@
     "Other"
   ],
   "activationEvents": [],
-  "main": "./out/extension.js",
+  "main": "./dist/extension.js",
   "contributes": {
     "markdown.markdownItPlugins": true
   },
   "scripts": {
     "vscode:prepublish": "pnpm build",
-    "build": "esbuild ./src/extension.ts --bundle --outdir=out --external:vscode --format=cjs --platform=node",
+    "build": "esbuild ./src/extension.ts --bundle --outdir=dist --external:vscode --format=cjs --platform=node --minify",
     "dev": "pnpm build --watch",
     "package": "pnpm vsce package --no-dependencies"
   },
