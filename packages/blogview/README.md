@@ -2,6 +2,8 @@
 
 Markdown のプレビューと Live Reload 対応 CLI
 
+[zenn-cli](https://github.com/zenn-dev/zenn-editor)の実装をとても参考にしています
+
 ## インストール
 
 ```
