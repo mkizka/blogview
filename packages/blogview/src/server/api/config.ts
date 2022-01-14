@@ -12,7 +12,10 @@ type Config = {
 };
 
 function parseConfig(text: string) {
-  const config = JSON.parse(text) as Config;
+  let config: Config | null = null;
+  try {
+    config = JSON.parse(text) as Config;
+  } catch (e) {}
   return {
     styles: [],
     ...config,

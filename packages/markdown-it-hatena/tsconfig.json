@@ -1,10 +1,8 @@
 {
   "compilerOptions": {
     "outDir": "dist",
-    "target": "es2020",
     "module": "commonjs",
-    "declaration": true,
-    "moduleResolution": "node"
+    "declaration": true
   },
-  "exclude": ["dist", "**/*.spec.ts"]
+  "exclude": ["dist", "src/*.spec.ts"]
 }

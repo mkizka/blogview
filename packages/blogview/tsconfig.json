@@ -1,12 +1,8 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "rootDir": "./src",
-    "outDir": "./dist",
-    "module": "es2020",
-    "target": "es2020",
-    "noEmit": false,
-    "esModuleInterop": true,
-    "moduleResolution": "node"
+    "rootDir": "src",
+    "outDir": "dist"
   },
   "ts-node": {
     "transpileOnly": true,
