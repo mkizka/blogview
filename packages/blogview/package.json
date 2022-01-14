@@ -13,8 +13,7 @@
     "build": "rimraf dist/* && run-p -l build:client build:server",
     "build:client": "tsc --project tsconfig.client.json && vite build",
     "build:server": "tsc",
-    "blogview": "node dist/server/blogview.js",
-    "prepare": "pnpm build"
+    "blogview": "node dist/server/blogview.js"
   },
   "devDependencies": {
     "@exampledev/new.css": "^1.1.3",

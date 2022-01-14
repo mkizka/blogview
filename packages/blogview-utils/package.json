@@ -10,8 +10,7 @@
     "dev:cjs": "tsc -p tsconfig.cjs.json -w",
     "build": "run-p -l build:*",
     "build:esm": "tsc",
-    "build:cjs": "tsc -p tsconfig.cjs.json",
-    "prepare": "pnpm build"
+    "build:cjs": "tsc -p tsconfig.cjs.json"
   },
   "dependencies": {
     "@mkizka/markdown-it-hatena": "^0.1.0",
