@@ -1,9 +1,6 @@
 {
   "name": "blogview-workspace",
   "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
   "scripts": {
     "build": "turbo run build",
     "test": "turbo run test",
