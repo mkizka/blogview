@@ -1,9 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`目次記法[:contents]の対応 1`] = `
-"<p><div class=\\"table-of-contents\\"><ul><li><a href=\\"#%E8%A6%8B%E5%87%BA%E3%81%971\\">見出し1</a><ul><li><a href=\\"#%E8%A6%8B%E5%87%BA%E3%81%972\\">見出し2</a></li></ul></li></ul></div></p>
+"<p><div class=\\"table-of-contents\\"><ul><li><a href=\\"#%E8%A6%8B%E5%87%BA%E3%81%971\\">見出し1</a><ul><li><a href=\\"#%E8%A6%8B%E5%87%BA%E3%81%972\\">見出し2</a><ul><li><a href=\\"#%E8%A6%8B%E5%87%BA%E3%81%973\\">見出し3</a><ul><li><a href=\\"#%E8%A6%8B%E5%87%BA%E3%81%974\\">見出し4</a><ul><li><a href=\\"#%E8%A6%8B%E5%87%BA%E3%81%975\\">見出し5</a><ul><li><a href=\\"#%E8%A6%8B%E5%87%BA%E3%81%976\\">見出し6</a></li></ul></li></ul></li></ul></li></ul></li></ul></li></ul></div></p>
 <h1 id=\\"%E8%A6%8B%E5%87%BA%E3%81%971\\" tabindex=\\"-1\\">見出し1</h1>
 <h2 id=\\"%E8%A6%8B%E5%87%BA%E3%81%972\\" tabindex=\\"-1\\">見出し2</h2>
 <h3 id=\\"%E8%A6%8B%E5%87%BA%E3%81%973\\" tabindex=\\"-1\\">見出し3</h3>
+<h4 id=\\"%E8%A6%8B%E5%87%BA%E3%81%974\\" tabindex=\\"-1\\">見出し4</h4>
+<h5 id=\\"%E8%A6%8B%E5%87%BA%E3%81%975\\" tabindex=\\"-1\\">見出し5</h5>
+<h6 id=\\"%E8%A6%8B%E5%87%BA%E3%81%976\\" tabindex=\\"-1\\">見出し6</h6>
 "
 `;
