@@ -1,8 +1,10 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "dist",
     "module": "commonjs",
     "declaration": true
   },
-  "exclude": ["dist", "src/*.spec.ts"]
+  "include": ["src"],
+  "exclude": ["dist", "**/*.spec.ts"]
 }

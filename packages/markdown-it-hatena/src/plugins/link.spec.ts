@@ -1,8 +1,15 @@
-import * as MarkdownIt from "markdown-it";
+import MarkdownIt from "markdown-it";
 import cheerio from "cheerio";
-import { embedPlugin } from "./embed";
+import { linkPlugin } from "./link";
 
-const md = new MarkdownIt().use(embedPlugin);
+const md = new MarkdownIt().use(linkPlugin);
+
+test("[]なしURLの対応", () => {
+  const src = "https://github.com:embed";
+  const rendered = md.render(src);
+  const $ = cheerio.load(rendered);
+  expect($("iframe").length).toBe(1);
+});
 
 test("埋め込み記法[{url}:embed]の対応", () => {
   const src = "[https://github.com:embed]";
