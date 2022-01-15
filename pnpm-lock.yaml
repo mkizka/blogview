@@ -15,7 +15,7 @@ importers:
   packages/blogview:
     specifiers:
       '@exampledev/new.css': ^1.1.3
-      '@mkizka/blogview-utils': ^0.1.0
+      '@mkizka/blogview-utils': workspace:^0.1.0
       '@swc/core': ^1.2.127
       '@types/connect-history-api-fallback': ^1.3.5
       '@types/express': ^4.17.13
@@ -71,7 +71,7 @@ importers:
 
   packages/blogview-utils:
     specifiers:
-      '@mkizka/markdown-it-hatena': ^0.1.0
+      '@mkizka/markdown-it-hatena': workspace:^0.1.0
       '@types/markdown-it': ^12.2.3
       '@types/revalidator': ^0.3.8
       markdown-it: ^12.3.2
@@ -92,7 +92,7 @@ importers:
 
   packages/blogview-vscode:
     specifiers:
-      '@mkizka/markdown-it-hatena': ^0.1.0
+      '@mkizka/markdown-it-hatena': workspace:^0.1.0
       '@types/node': 16.x
       '@types/vscode': ^1.63.0
       esbuild: ^0.14.11
