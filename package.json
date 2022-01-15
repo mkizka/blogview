@@ -7,7 +7,7 @@
     "dev": "turbo run dev",
     "format": "prettier -w .",
     "prepare": "pnpm build",
-    "new-version": "changeset version && pnpm format"
+    "new-version": "changeset version && pnpm format && pnpm i --ignore-scripts"
   },
   "devDependencies": {
     "@changesets/cli": "^2.19.0",
