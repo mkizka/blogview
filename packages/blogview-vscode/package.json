@@ -4,7 +4,7 @@
   "publisher": "mkizka",
   "private": true,
   "description": "Markdownプレビュー時に一部のはてな記法を変換する拡張機能",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "engines": {
     "vscode": "^1.63.0"
   },
@@ -31,7 +31,7 @@
     "vsce": "^2.6.3"
   },
   "dependencies": {
-    "@mkizka/markdown-it-hatena": "workspace:0.1.0"
+    "@mkizka/markdown-it-hatena": "workspace:0.1.1"
   },
   "repository": {
     "type": "git",

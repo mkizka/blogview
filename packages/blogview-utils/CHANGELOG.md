@@ -1,5 +1,12 @@
 # @mkizka/blogview-utils
 
+## 0.1.1
+
+### Patch Changes
+
+- Updated dependencies
+  - @mkizka/markdown-it-hatena@0.1.1
+
 ## 0.1.0
 
 ### Minor Changes

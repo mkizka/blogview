@@ -1,5 +1,12 @@
 # @mkizka/blogview
 
+## 0.1.1
+
+### Patch Changes
+
+- npm i -g でインストールしたときに動作しなかったのを修正
+  - @mkizka/blogview-utils@0.1.1
+
 ## 0.1.0
 
 ### Minor Changes
