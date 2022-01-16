@@ -109,11 +109,9 @@ importers:
 
   packages/markdown-it-hatena:
     specifiers:
-      '@types/escape-html': ^1.0.1
       '@types/jest': ^27.4.0
       '@types/markdown-it-container': ^2.0.4
       cheerio: ^1.0.0-rc.10
-      escape-html: ^1.0.3
       jest: ^27.4.7
       markdown-it: ^12.3.2
       markdown-it-anchor: ^8.4.1
@@ -122,12 +120,10 @@ importers:
       typescript: ^4.5.4
       url-regex: ^5.0.0
     dependencies:
-      escape-html: 1.0.3
       markdown-it-anchor: 8.4.1_markdown-it@12.3.2
       markdown-it-table-of-contents: 0.6.0
       url-regex: 5.0.0
     devDependencies:
-      '@types/escape-html': 1.0.1
       '@types/jest': 27.4.0
       '@types/markdown-it-container': 2.0.4
       cheerio: 1.0.0-rc.10
@@ -1236,10 +1232,6 @@ packages:
     resolution: {integrity: sha512-cdeYyv4KWoEgpBISTxWvqYsVy444DOqehiF3fM3ne10AmJ62RSyNkUnxMJXHQWRQQX2eR94m5y1IZyDwBjV9FQ==}
     dependencies:
       '@types/node': 17.0.8
-    dev: true
-
-  /@types/escape-html/1.0.1:
-    resolution: {integrity: sha512-4mI1FuUUZiuT95fSVqvZxp/ssQK9zsa86S43h9x3zPOSU9BBJ+BfDkXwuaU7BfsD+e7U0/cUUfJFk3iW2M4okA==}
     dev: true
 
   /@types/express-serve-static-core/4.17.28:
