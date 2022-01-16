@@ -1,9 +1,45 @@
 import { HatenaNotation, parseHatenaNotation } from "./utils";
 
-const fixtures: [string, HatenaNotation][] = [
+const fixtures: [string, HatenaNotation[]][] = [
   [
     "[https://github.com:embed]",
-    { type: "link", url: "https://github.com", options: ["embed"] },
+    [
+      {
+        type: "link",
+        url: "https://github.com",
+        options: ["embed"],
+        src: "[https://github.com:embed]",
+      },
+    ],
+  ],
+  [
+    "前後に[https://github.com:embed]文字列",
+    [
+      {
+        type: "text",
+        src: "前後に",
+      },
+      {
+        type: "link",
+        url: "https://github.com",
+        options: ["embed"],
+        src: "[https://github.com:embed]",
+      },
+      {
+        type: "text",
+        src: "文字列",
+      },
+    ],
+  ],
+  // [ ]で囲まれていない記法は現状対応しない
+  [
+    "https://github.com:embed",
+    [
+      {
+        type: "text",
+        src: "https://github.com:embed",
+      },
+    ],
   ],
 ];
 
