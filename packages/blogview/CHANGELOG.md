@@ -1,5 +1,13 @@
 # @mkizka/blogview
 
+## 1.0.1
+
+### Patch Changes
+
+- `{ linkify: true }`時の不具合修正
+- Updated dependencies
+  - @mkizka/blogview-utils@1.0.1
+
 ## 1.0.0
 
 ### Major Changes

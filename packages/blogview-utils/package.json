@@ -3,7 +3,7 @@
   "description": "Utilities for blogview and blogview-vscode",
   "main": "dist/cjs/index.js",
   "module": "dist/index.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "dev": "run-p -l dev:*",
     "dev:esm": "tsc -w",
@@ -13,7 +13,7 @@
     "build:cjs": "tsc -p tsconfig.cjs.json"
   },
   "dependencies": {
-    "@mkizka/markdown-it-hatena": "workspace:1.0.0",
+    "@mkizka/markdown-it-hatena": "workspace:1.0.1",
     "markdown-it": "^12.3.2",
     "remark": "13.0.0",
     "remark-frontmatter": "3.0.0",

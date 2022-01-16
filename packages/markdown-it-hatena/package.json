@@ -2,7 +2,7 @@
   "name": "@mkizka/markdown-it-hatena",
   "description": "markdown-it plugin to converts notation of HatenaBlog",
   "main": "dist/index.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "dev": "tsc -w",
     "build": "tsc",
