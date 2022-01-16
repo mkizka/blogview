@@ -12,3 +12,9 @@ npm install @mkizka/markdown-it-hatena
 
 - `:embed`
 - `:contents`
+
+## 実装について
+
+- はてなブログの Markdown 記法で使えるもののみ変換する
+- API を叩くなどの必要があるものは変換しない ... `:title`など
+- 変換しない記法はそのまま出力する
