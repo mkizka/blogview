@@ -12,6 +12,7 @@ npm install @mkizka/markdown-it-hatena
 
 - `:embed`
 - `:contents`
+- `:cite`
 
 ## 実装について
 

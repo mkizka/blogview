@@ -16,6 +16,7 @@ test("複数記法の組み合わせの対応", () => {
   const rendered = md.render(src);
   const $ = cheerio.load(rendered);
   expect($("iframe").length).toBe(1);
+  expect($("cite").length).toBe(1);
 });
 
 test("対応していない記法はそのまま出力する", () => {

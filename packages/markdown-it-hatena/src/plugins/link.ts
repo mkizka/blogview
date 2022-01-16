@@ -20,11 +20,17 @@ function renderLink(notation: HatenaNotationLink) {
             `style="display: block; width: 100%; height: 155px; max-width: 500px; margin: 10px 0px;"`,
             `></iframe>`,
           ].join(" ");
+        case "cite":
+          return [
+            `<cite class="hatena-citation">`,
+            `<a href="${notation.url}">${new URL(notation.url).host}</a>`,
+            `</cite>`,
+          ].join(" ");
         default:
           return escapeHTML(notation.src);
       }
     })
-    .join();
+    .join("");
 }
 
 const render = (notation: HatenaNotation) => {
@@ -41,6 +47,6 @@ const render = (notation: HatenaNotation) => {
 export const linkPlugin: PluginSimple = (md) => {
   md.renderer.rules.text = (tokens, idx) => {
     const token = tokens[idx];
-    return parseHatenaNotation(token.content).map(render).join();
+    return parseHatenaNotation(token.content).map(render).join("");
   };
 };
