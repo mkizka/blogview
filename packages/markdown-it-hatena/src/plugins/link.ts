@@ -45,8 +45,16 @@ const render = (notation: HatenaNotation) => {
 };
 
 export const linkPlugin: PluginSimple = (md) => {
-  md.renderer.rules.text = (tokens, idx) => {
+  md.inline.ruler2.push("markdown-it-hatena--link", (state) => {
+    const parsed = parseHatenaNotation(state.src);
+    if (parsed.filter((item) => item.type == "link").length >= 1) {
+      state.tokens[0].type = "text_with_hatena_link";
+    }
+    return false;
+  });
+  md.renderer.rules.text_with_hatena_link = (tokens, idx) => {
     const token = tokens[idx];
-    return parseHatenaNotation(token.content).map(render).join("");
+    const parsed = parseHatenaNotation(token.content);
+    return parsed.map(render).join("");
   };
 };

@@ -1,6 +1,9 @@
-import UrlRegex from "url-regex";
+import MarkdownIt from "markdown-it";
+import urlRegex from "url-regex";
 
-const urlRegex = new RegExp(UrlRegex().source, "i");
+export function createMarkdownIt() {
+  return new MarkdownIt({ linkify: true })
+}
 
 type HatenaNotationBase = {
   type: string;
@@ -45,7 +48,7 @@ function parse(src: string): HatenaNotation {
     const splitted = innerText.split(":");
     // https://help.hatenablog.com/entry/editor/advlink
     const maybeUrl = splitted.slice(0, 2).join(":"); // "https://"が区切られてしまっているため
-    if (urlRegex.test(maybeUrl)) {
+    if (urlRegex().test(maybeUrl)) {
       return {
         type: "link",
         url: maybeUrl,

@@ -1,8 +1,8 @@
-import MarkdownIt from "markdown-it";
 import cheerio from "cheerio";
 import { linkPlugin } from "./link";
+import { createMarkdownIt } from "./utils";
 
-const md = new MarkdownIt().use(linkPlugin);
+const md = createMarkdownIt().use(linkPlugin);
 
 test("埋め込み記法[{url}:embed]の対応", () => {
   const src = "[https://github.com:embed]";

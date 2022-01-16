@@ -1,7 +1,7 @@
-import MarkdownIt from "markdown-it";
 import { contentsPlugin } from "./contents";
+import { createMarkdownIt } from "./utils";
 
-const md = new MarkdownIt().use(contentsPlugin);
+const md = createMarkdownIt().use(contentsPlugin);
 
 const contents = `[:contents]
 # 見出し1
