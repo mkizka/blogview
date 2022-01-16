@@ -7,7 +7,7 @@ Markdown のプレビューと Live Reload 対応 CLI
 ## インストール
 
 ```
-npm install @mkizka/blogview
+npm i -g blogview
 ```
 
 ## 使い方
