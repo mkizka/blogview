@@ -1,5 +1,16 @@
 # blogview-vscode
 
+## 1.0.0
+
+### Major Changes
+
+- `:cite`をサポート
+
+### Patch Changes
+
+- Updated dependencies
+  - @mkizka/markdown-it-hatena@1.0.0
+
 ## 0.0.6
 
 ### Patch Changes

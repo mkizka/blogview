@@ -1,5 +1,11 @@
 # @mkizka/markdown-it-hatena
 
+## 1.0.0
+
+### Major Changes
+
+- `:cite`をサポート
+
 ## 0.1.1
 
 ### Patch Changes

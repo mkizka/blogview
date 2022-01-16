@@ -1,5 +1,16 @@
 # @mkizka/blogview
 
+## 1.0.0
+
+### Major Changes
+
+- `:cite`をサポート
+
+### Patch Changes
+
+- Updated dependencies
+  - @mkizka/blogview-utils@1.0.0
+
 ## 0.1.1
 
 ### Patch Changes
