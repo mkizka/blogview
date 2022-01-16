@@ -1,4 +1,5 @@
 import type { PluginSimple } from "markdown-it";
+import escapeHTML from "escape-html";
 
 import {
   HatenaNotation,
@@ -20,7 +21,7 @@ function renderLink(notation: HatenaNotationLink) {
             `></iframe>`,
           ].join(" ");
         default:
-          return notation.src;
+          return escapeHTML(notation.src);
       }
     })
     .join();
@@ -31,7 +32,7 @@ const render = (notation: HatenaNotation) => {
     case "link":
       return renderLink(notation);
     case "text":
-      return notation.src;
+      return escapeHTML(notation.src);
     default:
       throw new Error();
   }

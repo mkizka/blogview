@@ -25,3 +25,9 @@ test("対応していない記法はそのまま出力する", () => {
   expect($("iframe").length).toBe(0);
   expect($("p").text()).toBe(src);
 });
+
+test("そのまま出力するときはエスケープする", () => {
+  const src = "foo & bar";
+  const rendered = md.render(src);
+  expect(rendered).toBe("<p>foo &amp; bar</p>\n");
+});
