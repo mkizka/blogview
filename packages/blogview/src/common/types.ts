@@ -1,4 +1,10 @@
-import { BlogMeta } from "@mkizka/blogview-utils";
+export type BlogMeta = {
+  categories: string[];
+  date: string;
+  draft: boolean;
+  id: string;
+  title: string;
+};
 
 export type EntryResponse = {
   html: string;

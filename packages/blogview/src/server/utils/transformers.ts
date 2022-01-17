@@ -10,14 +10,6 @@ export async function md2html(md: string) {
     .render(md);
 }
 
-export type BlogMeta = {
-  categories: string[];
-  date: string;
-  draft: boolean;
-  id: string;
-  title: string;
-};
-
 export async function md2meta(md: string) {
   // @ts-ignore
   const processor = remark().use(remarkFrontmatter).use(remarkParseFrontmatter);

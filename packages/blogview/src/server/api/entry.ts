@@ -2,8 +2,8 @@ import fs from "fs";
 import path from "path";
 import type * as express from "express";
 import { Router } from "express";
-import { md2meta, md2html } from "@mkizka/blogview-utils";
 
+import { md2meta, md2html } from "../utils/transformers";
 import { EntryAllResponse, EntryResponse } from "../../common/types.js";
 
 const entryDir = path.join(process.cwd(), "entry");
