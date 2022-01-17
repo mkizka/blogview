@@ -6,7 +6,6 @@
     "test": "turbo run test",
     "dev": "turbo run dev",
     "format": "prettier -w .",
-    "prepare": "pnpm build",
     "new-version": "changeset version && pnpm format && pnpm i --ignore-scripts"
   },
   "devDependencies": {
