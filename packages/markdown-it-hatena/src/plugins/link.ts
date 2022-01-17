@@ -12,6 +12,15 @@ function renderLink(notation: HatenaNotationLink) {
     .map((option) => {
       switch (option) {
         case "embed":
+          if (notation.url.startsWith("https://twitter.com")) {
+            return [
+              `<div class="twitter-tweet-container">`,
+              `<blockquote class="twitter-tweet">`,
+              `<a href="${notation.url}"></a>`,
+              `</blockquote>`,
+              `</div>`,
+            ].join("");
+          }
           return [
             "<iframe",
             `src="https://hatenablog-parts.com/embed?url=${notation.url}"`,
