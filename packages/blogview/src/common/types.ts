@@ -1,9 +1,9 @@
 export type BlogMeta = {
-  categories: string[];
-  date: string;
-  draft: boolean;
-  id: string;
-  title: string;
+  categories?: string[];
+  date?: string;
+  draft?: boolean;
+  id?: string;
+  title?: string;
 };
 
 export type EntryResponse = {
