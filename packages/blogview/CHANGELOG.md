@@ -1,5 +1,11 @@
 # @mkizka/blogview
 
+## 1.0.2
+
+### Patch Changes
+
+- プレビュー時の yaml ヘッダを非表示に
+
 ## 1.0.1
 
 ### Patch Changes
