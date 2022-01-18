@@ -1,5 +1,16 @@
 # @mkizka/blogview
 
+## 1.1.0
+
+### Minor Changes
+
+- ツイート埋め込みに対応
+
+### Patch Changes
+
+- Updated dependencies
+  - @mkizka/markdown-it-hatena@1.1.0
+
 ## 1.0.2
 
 ### Patch Changes
