@@ -14,7 +14,10 @@
   "activationEvents": [],
   "main": "./dist/extension.js",
   "contributes": {
-    "markdown.markdownItPlugins": true
+    "markdown.markdownItPlugins": true,
+    "markdown.previewScripts": [
+      "./tweet.js"
+    ]
   },
   "scripts": {
     "vscode:prepublish": "pnpm build",
