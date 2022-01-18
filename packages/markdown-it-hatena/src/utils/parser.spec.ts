@@ -1,4 +1,4 @@
-import { HatenaNotation, parseHatenaNotation } from "./utils";
+import { HatenaNotation, parseHatenaNotation } from "./parser";
 
 const fixtures: [string, HatenaNotation[]][] = [
   [

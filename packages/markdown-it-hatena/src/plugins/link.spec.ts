@@ -1,6 +1,7 @@
 import cheerio from "cheerio";
+
 import { linkPlugin } from "./link";
-import { createMarkdownIt } from "./utils";
+import { createMarkdownIt } from "../utils/md";
 
 const md = createMarkdownIt().use(linkPlugin);
 

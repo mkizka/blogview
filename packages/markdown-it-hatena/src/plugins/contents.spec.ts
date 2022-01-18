@@ -1,5 +1,5 @@
 import { contentsPlugin } from "./contents";
-import { createMarkdownIt } from "./utils";
+import { createMarkdownIt } from "../utils/md";
 
 const md = createMarkdownIt().use(contentsPlugin);
 

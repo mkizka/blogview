@@ -5,15 +5,8 @@ import {
   HatenaNotation,
   HatenaNotationLink,
   parseHatenaNotation,
-} from "./utils";
-
-function isTwitter(url: string) {
-  return /^https:\/\/twitter\.com\/\S+?\/status/.test(url);
-}
-
-function isYouTube(url: string) {
-  return /^https:\/\/www\.youtube\.com\/watch/.test(url);
-}
+} from "../utils/parser";
+import { isTwitter, isYouTube } from "../utils/validator";
 
 function renderLink(notation: HatenaNotationLink) {
   return notation.options

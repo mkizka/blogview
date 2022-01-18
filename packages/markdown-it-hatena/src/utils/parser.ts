@@ -1,9 +1,4 @@
-import MarkdownIt from "markdown-it";
 import urlRegex from "url-regex";
-
-export function createMarkdownIt() {
-  return new MarkdownIt({ linkify: true, html: true });
-}
 
 type HatenaNotationBase = {
   type: string;
