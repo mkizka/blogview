@@ -15,4 +15,6 @@
 
 ## 使用例
 
-https://github.com/mkizka/blog.mkizka.dev
+- ブログ記事 ... https://blog.mkizka.dev/entry/c6ff7f2cbe
+- 自分で使ってるリポジトリ ... https://github.com/mkizka/blog.mkizka.dev
+- テンプレート ... https://github.com/mkizka/blogview-template
