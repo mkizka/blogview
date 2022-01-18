@@ -15,9 +15,7 @@ export function EntryPage() {
 
   useEffect(() => {
     // @ts-ignore
-    twttr.widgets.load(
-      document.getElementsByClassName("twitter-tweet-container")
-    );
+    twttr.widgets.load();
   }, [entry]);
 
   if (entry == null) return <div>loading...</div>;

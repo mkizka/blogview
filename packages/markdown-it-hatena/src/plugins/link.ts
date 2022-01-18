@@ -14,11 +14,9 @@ function renderLink(notation: HatenaNotationLink) {
         case "embed":
           if (notation.url.startsWith("https://twitter.com")) {
             return [
-              `<div class="twitter-tweet-container">`,
               `<blockquote class="twitter-tweet">`,
               `<a href="${notation.url}"></a>`,
               `</blockquote>`,
-              `</div>`,
             ].join("");
           }
           return [

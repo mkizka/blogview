@@ -18,9 +18,7 @@ window.twttr = (function (d, s, id) {
 })(document, "script", "twitter-wjs");
 
 function loadTweet() {
-  window.twttr.widgets.load(
-    document.getElementsByClassName("twitter-tweet-container")
-  );
+  window.twttr.widgets.load();
 }
 
 window.addEventListener("vscode.markdown.updateContent", loadTweet);
