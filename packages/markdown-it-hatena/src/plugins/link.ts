@@ -7,17 +7,37 @@ import {
   parseHatenaNotation,
 } from "./utils";
 
+function isTwitter(url: string) {
+  return /^https:\/\/twitter\.com\/\S+?\/status/.test(url);
+}
+
+function isYouTube(url: string) {
+  return /^https:\/\/www\.youtube\.com\/watch/.test(url);
+}
+
 function renderLink(notation: HatenaNotationLink) {
   return notation.options
     .map((option) => {
       switch (option) {
         case "embed":
-          if (notation.url.startsWith("https://twitter.com")) {
+          if (isTwitter(notation.url)) {
             return [
               `<blockquote class="twitter-tweet">`,
               `<a href="${notation.url}"></a>`,
               `</blockquote>`,
             ].join("");
+          }
+          if (isYouTube(notation.url)) {
+            const v = new URL(notation.url).searchParams.get("v");
+            return [
+              `<iframe`,
+              `width="560"`,
+              `height="315"`,
+              `src="https://www.youtube.com/embed/${v}"`,
+              `frameborder="0"`,
+              `allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"`,
+              `allowfullscreen></iframe>`,
+            ].join(" ");
           }
           return [
             "<iframe",
