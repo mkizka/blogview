@@ -52,6 +52,11 @@
   "files": [
     "dist"
   ],
+  "keywords": [
+    "markdown",
+    "blog",
+    "hatena"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/mkizka/blogview.git"

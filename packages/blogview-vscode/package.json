@@ -36,6 +36,11 @@
   "dependencies": {
     "markdown-it-hatena": "workspace:1.2.0"
   },
+  "keywords": [
+    "markdown",
+    "blog",
+    "hatena"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/mkizka/blogview.git"
