@@ -1,4 +1,4 @@
-# @mkizka/blogview
+# blogview
 
 ## 1.2.0
 

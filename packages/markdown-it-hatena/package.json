@@ -1,6 +1,6 @@
 {
-  "name": "@mkizka/markdown-it-hatena",
-  "description": "markdown-it plugin to converts notation of HatenaBlog",
+  "name": "markdown-it-hatena",
+  "description": "markdown-it plugin to convert notation of HatenaBlog",
   "main": "dist/index.js",
   "version": "1.2.0",
   "scripts": {

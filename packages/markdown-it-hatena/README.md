@@ -5,7 +5,7 @@
 ## インストール
 
 ```
-npm install @mkizka/markdown-it-hatena
+npm install markdown-it-hatena
 ```
 
 ## 対応状況

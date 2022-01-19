@@ -1,4 +1,4 @@
-# @mkizka/markdown-it-hatena
+# markdown-it-hatena
 
 ## 1.2.0
 
