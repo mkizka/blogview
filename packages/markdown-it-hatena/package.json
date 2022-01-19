@@ -10,16 +10,17 @@
     "prepublishOnly": "pnpm test"
   },
   "dependencies": {
+    "markdown-it": "^12.3.2",
     "markdown-it-anchor": "^8.4.1",
     "markdown-it-table-of-contents": "^0.6.0",
     "url-regex": "^5.0.0"
   },
   "devDependencies": {
     "@types/jest": "^27.4.0",
+    "@types/markdown-it": "^12.2.3",
     "@types/markdown-it-container": "^2.0.4",
     "cheerio": "^1.0.0-rc.10",
     "jest": "^27.4.7",
-    "markdown-it": "^12.3.2",
     "ts-jest": "^27.1.2",
     "typescript": "^4.5.4"
   },

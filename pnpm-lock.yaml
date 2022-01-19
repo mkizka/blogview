@@ -97,6 +97,7 @@ importers:
   packages/markdown-it-hatena:
     specifiers:
       '@types/jest': ^27.4.0
+      '@types/markdown-it': ^12.2.3
       '@types/markdown-it-container': ^2.0.4
       cheerio: ^1.0.0-rc.10
       jest: ^27.4.7
@@ -107,15 +108,16 @@ importers:
       typescript: ^4.5.4
       url-regex: ^5.0.0
     dependencies:
-      markdown-it-anchor: 8.4.1_markdown-it@12.3.2
+      markdown-it: 12.3.2
+      markdown-it-anchor: 8.4.1_d643ca6eb40ae68ab966a77bead78073
       markdown-it-table-of-contents: 0.6.0
       url-regex: 5.0.0
     devDependencies:
       '@types/jest': 27.4.0
+      '@types/markdown-it': 12.2.3
       '@types/markdown-it-container': 2.0.4
       cheerio: 1.0.0-rc.10
       jest: 27.4.7
-      markdown-it: 12.3.2
       ts-jest: 27.1.2_9364f2ad0b7b67f00a4d081c662c6871
       typescript: 4.5.4
 
@@ -1545,6 +1547,7 @@ packages:
 
   /argparse/2.0.1:
     resolution: {integrity: sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==}
+    dev: false
 
   /array-flatten/1.1.1:
     resolution: {integrity: sha1-ml9pkFGx5wczKPKgCJaLZOopVdI=}
@@ -2403,6 +2406,7 @@ packages:
 
   /entities/2.1.0:
     resolution: {integrity: sha512-hCx1oky9PFrJ611mf0ifBLBRW8lUUVRlFolb5gWRfIELabBlbp9xZvrqZLZAs+NxFnbfQoeGd8wDkygjg7U85w==}
+    dev: false
 
   /entities/2.2.0:
     resolution: {integrity: sha512-p92if5Nz619I0w+akJrLZH0MX0Pb5DX39XOwQTtXSdQQOaYH03S1uIQp4mhOZtAXrxq4ViO67YTiLBo2638o9A==}
@@ -4318,6 +4322,7 @@ packages:
     resolution: {integrity: sha512-ynTsyrFSdE5oZ/O9GEf00kPngmOfVwazR5GKDq6EYfhlpFug3J2zybX56a2PRRpc9P+FuSoGNAwjlbDs9jJBPQ==}
     dependencies:
       uc.micro: 1.0.6
+    dev: false
 
   /load-json-file/4.0.0:
     resolution: {integrity: sha1-L19Fq5HjMhYjT9U62rZo607AmTs=}
@@ -4423,12 +4428,13 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /markdown-it-anchor/8.4.1_markdown-it@12.3.2:
+  /markdown-it-anchor/8.4.1_d643ca6eb40ae68ab966a77bead78073:
     resolution: {integrity: sha512-sLODeRetZ/61KkKLJElaU3NuU2z7MhXf12Ml1WJMSdwpngeofneCRF+JBbat8HiSqhniOMuTemXMrsI7hA6XyA==}
     peerDependencies:
       '@types/markdown-it': '*'
       markdown-it: '*'
     dependencies:
+      '@types/markdown-it': 12.2.3
       markdown-it: 12.3.2
     dev: false
 
@@ -4461,6 +4467,7 @@ packages:
       linkify-it: 3.0.3
       mdurl: 1.0.1
       uc.micro: 1.0.6
+    dev: false
 
   /mdurl/1.0.1:
     resolution: {integrity: sha1-/oWy7HWlkDfyrf7BAP1sYBdhFS4=}
