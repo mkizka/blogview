@@ -17,7 +17,22 @@
     "markdown.markdownItPlugins": true,
     "markdown.previewScripts": [
       "./tweet.js"
-    ]
+    ],
+    "configuration": {
+      "title": "Blogview",
+      "properties": {
+        "blogview.enableTwitter": {
+          "type": "boolean",
+          "description": "ツイート埋め込みを有効化(再起動後に反映)",
+          "default": true
+        },
+        "blogview.enableYoutube": {
+          "type": "boolean",
+          "description": "YouTube埋め込みを有効化(再起動後に反映)",
+          "default": true
+        }
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "pnpm build",
