@@ -1,8 +1,9 @@
 import fs from "fs";
 import path from "path";
-import type * as express from "express";
+import type express from "express";
 import { Router } from "express";
-import { ConfigResponse } from "../../common/types";
+
+import { ConfigResponse } from "../../../common/types";
 
 const configPath = path.join(process.cwd(), "blogview.json");
 const configRouter = Router();

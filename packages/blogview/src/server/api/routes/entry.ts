@@ -1,10 +1,10 @@
 import fs from "fs";
 import path from "path";
-import type * as express from "express";
+import type express from "express";
 import { Router } from "express";
 
-import { renderMarkdown } from "../utils/render.js";
-import { EntryAllResponse, EntryResponse } from "../../common/types.js";
+import { renderMarkdown } from "../../utils/render.js";
+import { EntryAllResponse, EntryResponse } from "../../../common/types.js";
 
 const entryDir = path.join(process.cwd(), "entry");
 const entryRouter = Router();
