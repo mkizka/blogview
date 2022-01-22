@@ -1,3 +1,4 @@
+import { test, expect } from "vitest";
 import { contentsPlugin } from "./contents";
 import { createMarkdownIt } from "../utils/md";
 

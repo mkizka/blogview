@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
 exports[`目次記法[:contents]の対応 1`] = `
 "<p><div class=\\"table-of-contents\\"><ul><li><a href=\\"#%E8%A6%8B%E5%87%BA%E3%81%971\\">見出し1</a><ul><li><a href=\\"#%E8%A6%8B%E5%87%BA%E3%81%972\\">見出し2</a><ul><li><a href=\\"#%E8%A6%8B%E5%87%BA%E3%81%973\\">見出し3</a><ul><li><a href=\\"#%E8%A6%8B%E5%87%BA%E3%81%974\\">見出し4</a><ul><li><a href=\\"#%E8%A6%8B%E5%87%BA%E3%81%975\\">見出し5</a><ul><li><a href=\\"#%E8%A6%8B%E5%87%BA%E3%81%976\\">見出し6</a></li></ul></li></ul></li></ul></li></ul></li></ul></li></ul></div></p>

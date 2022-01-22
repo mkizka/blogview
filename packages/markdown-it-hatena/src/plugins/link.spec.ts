@@ -1,3 +1,4 @@
+import { test, expect } from "vitest";
 import cheerio from "cheerio";
 
 import { linkPlugin } from "./link";

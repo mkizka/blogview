@@ -1,3 +1,4 @@
+import { test, expect } from "vitest";
 import { HatenaNotation, parseHatenaNotation } from "./parser";
 
 const fixtures: [string, HatenaNotation[]][] = [

@@ -1,3 +1,4 @@
+import { test, expect } from "vitest";
 import { isTwitter, isYouTube } from "./validator";
 
 const fixturesTwitter: [string, boolean][] = [
