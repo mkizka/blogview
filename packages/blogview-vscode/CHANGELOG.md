@@ -1,5 +1,13 @@
 # blogview-vscode
 
+## 1.2.4
+
+### Patch Changes
+
+- ツイート,YouTube 埋め込みを無効化出来るように
+- Updated dependencies
+  - markdown-it-hatena@1.2.1
+
 ## 1.2.1
 
 ### Patch Changes

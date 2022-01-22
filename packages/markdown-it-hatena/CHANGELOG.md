@@ -1,5 +1,11 @@
 # markdown-it-hatena
 
+## 1.2.1
+
+### Patch Changes
+
+- ツイート,YouTube 埋め込みを無効化出来るように
+
 ## 1.2.0
 
 ### Minor Changes

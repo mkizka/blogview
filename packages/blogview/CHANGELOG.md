@@ -1,5 +1,12 @@
 # blogview
 
+## 1.2.1
+
+### Patch Changes
+
+- Updated dependencies
+  - markdown-it-hatena@1.2.1
+
 ## 1.2.0
 
 ### Minor Changes
