@@ -4,13 +4,15 @@ VSCode ではてなブログ記事を書くための Markdown プレビュー拡
 
 一部のはてな記法がプレビューに反映されます。
 
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mkizka/20220118/20220118161117.png)
+
 ## 使い方
 
 拡張機能をインストールするだけで動作します。
 
 ## 対応している記法
 
-markdown-it-hatena の README を参照
+markdown-it-hatena の README を参照してください。
 
 https://github.com/mkizka/blogview/tree/main/packages/markdown-it-hatena#readme
 
