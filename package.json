@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "build": "turbo run build",
-    "test": "turbo run test",
+    "test": "turbo run test --continue",
     "dev": "turbo run dev",
     "format": "prettier -w .",
     "new-version": "changeset version && pnpm format && pnpm i --ignore-scripts"
