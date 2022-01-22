@@ -1,5 +1,11 @@
 # blogview-vscode
 
+## 1.2.1
+
+### Patch Changes
+
+- ツイート埋め込みがある場合のみスクリプトを読み込むように
+
 ## 1.2.0
 
 ### Minor Changes
