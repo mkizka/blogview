@@ -24,6 +24,7 @@ importers:
       '@types/react-dom': ^17.0.11
       '@types/ws': ^8.2.2
       '@vitejs/plugin-react': ^1.1.4
+      cac: ^6.7.12
       chokidar: ^3.5.2
       connect-history-api-fallback: ^1.6.0
       express: ^4.17.2
@@ -45,6 +46,7 @@ importers:
       wait-on: ^6.0.0
       ws: ^8.4.0
     dependencies:
+      cac: 6.7.12
       chokidar: 3.5.2
       connect-history-api-fallback: 1.6.0
       express: 4.17.2
@@ -1795,6 +1797,11 @@ packages:
   /bytes/3.1.1:
     resolution: {integrity: sha512-dWe4nWO/ruEOY7HkUJ5gFt1DCFV9zPRoJr8pV0/ASQermOZjtq8jMjOprC0Kd10GLN+l7xaUPvxzJFWtxGu8Fg==}
     engines: {node: '>= 0.8'}
+    dev: false
+
+  /cac/6.7.12:
+    resolution: {integrity: sha512-rM7E2ygtMkJqD9c7WnFU6fruFcN3xe4FM5yUmgxhZzIKJk4uHl9U/fhwdajGFQbQuv43FAUo1Fe8gX/oIKDeSA==}
+    engines: {node: '>=8'}
     dev: false
 
   /cacheable-request/6.1.0:
