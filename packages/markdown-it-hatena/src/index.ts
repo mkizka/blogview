@@ -1,9 +1,12 @@
-import type { PluginSimple } from "markdown-it";
+import type { PluginWithOptions } from "markdown-it";
 import { contentsPlugin } from "./plugins/contents";
-import { linkPlugin } from "./plugins/link";
+import { linkPlugin, LinkPluginOptions } from "./plugins/link";
 
-const markdownItHatena: PluginSimple = (md) => {
-  md.use(linkPlugin).use(contentsPlugin);
+const markdownItHatena: PluginWithOptions<LinkPluginOptions> = (
+  md,
+  options
+) => {
+  md.use(linkPlugin, options).use(contentsPlugin);
 };
 
 export = markdownItHatena;

@@ -1,4 +1,4 @@
-import type { PluginSimple } from "markdown-it";
+import type { PluginWithOptions } from "markdown-it";
 import { escapeHtml } from "markdown-it/lib/common/utils";
 
 import {
@@ -8,19 +8,19 @@ import {
 } from "../utils/parser";
 import { isTwitter, isYouTube } from "../utils/validator";
 
-function renderLink(notation: HatenaNotationLink) {
+function renderLink(notation: HatenaNotationLink, options?: LinkPluginOptions) {
   return notation.options
     .map((option) => {
       switch (option) {
         case "embed":
-          if (isTwitter(notation.url)) {
+          if (options?.twitter && isTwitter(notation.url)) {
             return [
               `<blockquote class="twitter-tweet">`,
               `<a href="${notation.url}"></a>`,
               `</blockquote>`,
             ].join("");
           }
-          if (isYouTube(notation.url)) {
+          if (options?.youtube && isYouTube(notation.url)) {
             const v = new URL(notation.url).searchParams.get("v");
             return [
               `<iframe`,
@@ -53,10 +53,10 @@ function renderLink(notation: HatenaNotationLink) {
     .join("");
 }
 
-const render = (notation: HatenaNotation) => {
+const render = (notation: HatenaNotation, options?: LinkPluginOptions) => {
   switch (notation.type) {
     case "link":
-      return renderLink(notation);
+      return renderLink(notation, options);
     case "text":
       return escapeHtml(notation.src);
     default:
@@ -64,7 +64,10 @@ const render = (notation: HatenaNotation) => {
   }
 };
 
-export const linkPlugin: PluginSimple = (md) => {
+export const linkPlugin: PluginWithOptions<LinkPluginOptions> = (
+  md,
+  options
+) => {
   md.inline.ruler2.push("markdown-it-hatena--link", (state) => {
     const parsed = parseHatenaNotation(state.src);
     if (parsed.filter((item) => item.type == "link").length >= 1) {
@@ -75,6 +78,11 @@ export const linkPlugin: PluginSimple = (md) => {
   md.renderer.rules.text_with_hatena_link = (tokens, idx) => {
     const token = tokens[idx];
     const parsed = parseHatenaNotation(token.content);
-    return parsed.map(render).join("");
+    return parsed.map((notation) => render(notation, options)).join("");
   };
+};
+
+export type LinkPluginOptions = {
+  twitter: boolean;
+  youtube: boolean;
 };
