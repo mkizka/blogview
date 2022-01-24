@@ -1,5 +1,5 @@
 import MarkdownIt from "markdown-it";
-import markdownItHatena from "markdown-it-hatena";
+import { markdownItHatena } from "markdown-it-hatena";
 import markdownItFrontMatter from "markdown-it-front-matter";
 import yaml from "js-yaml";
 
