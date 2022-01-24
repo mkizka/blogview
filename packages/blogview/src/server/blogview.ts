@@ -7,9 +7,13 @@ import { createApp, AppOptions } from "./api/app.js";
 
 const cli = cac();
 
-cli.option("-c, --config <path>", "設定ファイルを指定", {
-  default: "blogview.json",
-});
+cli
+  .option("-c, --config <path>", "Config file path", {
+    default: "blogview.json",
+  })
+  .option("-e, --entry <path>", "Entries directory", {
+    default: "entry",
+  });
 
 cli //
   .command("")
