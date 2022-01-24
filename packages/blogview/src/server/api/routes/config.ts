@@ -5,9 +5,6 @@ import { Router } from "express";
 
 import { ConfigResponse } from "../../../common/types";
 
-const configPath = path.join(process.cwd(), "blogview.json");
-const configRouter = Router();
-
 type Config = {
   styles: string[];
 };
@@ -23,16 +20,23 @@ function parseConfig(text: string) {
   };
 }
 
-configRouter.get(
-  "/",
-  async (_: express.Request, res: express.Response<ConfigResponse>) => {
-    const configRaw = fs.readFileSync(configPath, "utf-8");
-    const config = parseConfig(configRaw);
-    const styles = config.styles
-      .filter((path) => fs.existsSync(path))
-      .map((path) => fs.readFileSync(path, "utf-8"));
-    res.send({ styles });
-  }
-);
+export type ConfigRouterOptions = {
+  config: string;
+};
 
-export { configRouter };
+export function configRouter(options: ConfigRouterOptions) {
+  const router = Router();
+  router.get(
+    "/",
+    async (_: express.Request, res: express.Response<ConfigResponse>) => {
+      const configPath = path.join(process.cwd(), options.config);
+      const configRaw = fs.readFileSync(configPath, "utf-8");
+      const config = parseConfig(configRaw);
+      const styles = config.styles
+        .filter((path) => fs.existsSync(path))
+        .map((path) => fs.readFileSync(path, "utf-8"));
+      res.send({ styles });
+    }
+  );
+  return router;
+}
