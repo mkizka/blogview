@@ -1,5 +1,5 @@
 import MarkdownIt from "markdown-it";
-import { markdownItHatena } from "markdown-it-hatena";
+import { HatenaPluginOptions, markdownItHatena } from "markdown-it-hatena";
 import markdownItFrontMatter from "markdown-it-front-matter";
 import yaml from "js-yaml";
 
@@ -10,10 +10,13 @@ type RenderMarkdownResult = {
   meta: BlogMeta;
 };
 
-export function renderMarkdown(text: string): RenderMarkdownResult {
+export function renderMarkdown(
+  text: string,
+  options: HatenaPluginOptions
+): RenderMarkdownResult {
   let meta: BlogMeta = {};
   const html = new MarkdownIt({ linkify: true, html: true })
-    .use(markdownItHatena)
+    .use(markdownItHatena, options)
     .use(markdownItFrontMatter, (metaRaw) => {
       meta = yaml.load(metaRaw) as BlogMeta;
     })

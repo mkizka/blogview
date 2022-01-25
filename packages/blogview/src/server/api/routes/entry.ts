@@ -2,11 +2,12 @@ import fs from "fs";
 import path from "path";
 import type express from "express";
 import { Router } from "express";
+import { HatenaPluginOptions } from "markdown-it-hatena";
 
 import { renderMarkdown } from "../../utils/render.js";
 import { EntryAllResponse, EntryResponse } from "../../../common/types.js";
 
-export type EntryRouterOptions = {
+export type EntryRouterOptions = HatenaPluginOptions & {
   entry: string;
 };
 
@@ -36,7 +37,7 @@ export function entryRouter(options: EntryRouterOptions) {
         const entryRaw = readRelativeFile(options.entry, entryFile)!;
         return {
           slug: entryFile.split(".")[0],
-          meta: renderMarkdown(entryRaw).meta,
+          meta: renderMarkdown(entryRaw, options).meta,
         };
       });
       const entryMetas = await Promise.all(entryMetaPromises);
@@ -52,7 +53,7 @@ export function entryRouter(options: EntryRouterOptions) {
     async (req: express.Request, res: express.Response<EntryResponse>) => {
       const entry = readRelativeFile(options.entry, `${req.params.slug}.md`);
       if (entry != null) {
-        res.json(renderMarkdown(entry));
+        res.json(renderMarkdown(entry, options));
       } else {
         res.status(404).send();
       }

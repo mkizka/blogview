@@ -13,7 +13,9 @@ cli
   })
   .option("-e, --entry <path>", "Entries directory", {
     default: "entry",
-  });
+  })
+  .option("--no-twitter", "Disable Embed Tweet")
+  .option("--no-youtube", "Disable Embed YouTube");
 
 cli //
   .command("")
