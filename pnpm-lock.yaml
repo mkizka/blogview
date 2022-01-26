@@ -24,7 +24,7 @@ importers:
       '@types/react-dom': ^17.0.11
       '@types/ws': ^8.2.2
       '@vitejs/plugin-react': ^1.1.4
-      cac: ^6.7.12
+      arg: ^5.0.1
       chokidar: ^3.5.2
       connect-history-api-fallback: ^1.6.0
       express: ^4.17.2
@@ -46,7 +46,7 @@ importers:
       wait-on: ^6.0.0
       ws: ^8.4.0
     dependencies:
-      cac: 6.7.12
+      arg: 5.0.1
       chokidar: 3.5.2
       connect-history-api-fallback: 1.6.0
       express: 4.17.2
@@ -1093,6 +1093,10 @@ packages:
     resolution: {integrity: sha512-58S9QDqG0Xx27YwPSt9fJxivjYl432YCwfDMfZ+71RAqUrZef7LrKQZ3LHLOwCS4FLNBplP533Zx895SeOCHvA==}
     dev: true
 
+  /arg/5.0.1:
+    resolution: {integrity: sha512-e0hDa9H2Z9AwFkk2qDlwhoMYE4eToKarchkQHovNdLTCYMHZHeRjI71crOh+dio4K6u1IcwubQqo79Ga4CyAQA==}
+    dev: false
+
   /argparse/1.0.10:
     resolution: {integrity: sha512-o5Roy6tNG4SL/FOkCAN6RzjiakZS25RLYFrcMttJqbdd8BWrnA+fGz57iN5Pb06pvBGvl5gQ0B48dJlslXvoTg==}
     dependencies:
@@ -1255,11 +1259,6 @@ packages:
   /bytes/3.1.1:
     resolution: {integrity: sha512-dWe4nWO/ruEOY7HkUJ5gFt1DCFV9zPRoJr8pV0/ASQermOZjtq8jMjOprC0Kd10GLN+l7xaUPvxzJFWtxGu8Fg==}
     engines: {node: '>= 0.8'}
-    dev: false
-
-  /cac/6.7.12:
-    resolution: {integrity: sha512-rM7E2ygtMkJqD9c7WnFU6fruFcN3xe4FM5yUmgxhZzIKJk4uHl9U/fhwdajGFQbQuv43FAUo1Fe8gX/oIKDeSA==}
-    engines: {node: '>=8'}
     dev: false
 
   /cacheable-request/6.1.0:

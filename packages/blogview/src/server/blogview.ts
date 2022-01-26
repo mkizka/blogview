@@ -1,30 +1,15 @@
 #!/usr/bin/env node
-import cac from "cac";
 
-import { startLocalChangesWatcher, startServer } from "./utils/server.js";
 import { port } from "../common/config.js";
-import { createApp, AppOptions } from "./api/app.js";
+import { createApp } from "./api/app.js";
+import { getOptions } from "./utils/options.js";
+import { startServer, startLocalChangesWatcher } from "./utils/server.js";
 
-const cli = cac();
+async function main() {
+  const options = getOptions();
+  const app = createApp(options);
+  const server = await startServer(app, port);
+  await startLocalChangesWatcher(server, `${process.cwd()}/entry/*.md`);
+}
 
-cli
-  .option("-c, --config <path>", "Config file path", {
-    default: "blogview.json",
-  })
-  .option("-e, --entry <path>", "Entries directory", {
-    default: "entry",
-  })
-  .option("--no-twitter", "Disable Embed Tweet")
-  .option("--no-youtube", "Disable Embed YouTube");
-
-cli //
-  .command("")
-  .action(async (options: AppOptions) => {
-    const app = createApp(options);
-    const server = await startServer(app, port);
-    await startLocalChangesWatcher(server, `${process.cwd()}/entry/*.md`);
-  });
-
-cli.help();
-
-cli.parse();
+main();
