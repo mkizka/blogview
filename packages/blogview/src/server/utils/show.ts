@@ -7,6 +7,7 @@ Usage: blogview [options]
 
 Options:
   -h, --help    ヘルプを表示
+  -v, --version バージョン名を表示
   -c, --config  設定ファイルのパスを指定(デフォルト: blogview.json)
   -e, --entry   Markdownファイルのディレクトリ指定(デフォルト: entry)
   --style       CSSファイルのパスを複数指定(デフォルト: [])
