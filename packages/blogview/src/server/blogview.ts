@@ -2,7 +2,7 @@
 
 import { port } from "../common/config.js";
 import { createApp } from "./api/app.js";
-import { showHelp } from "./utils/help.js";
+import { showHelp, showVersion } from "./utils/show.js";
 import { args, getOptions } from "./utils/options.js";
 import { startServer, startLocalChangesWatcher } from "./utils/server.js";
 
@@ -15,6 +15,8 @@ async function main() {
 
 if (args["--help"]) {
   showHelp();
+} else if (args["--version"]) {
+  showVersion();
 } else {
   main();
 }

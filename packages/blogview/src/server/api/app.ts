@@ -4,8 +4,7 @@ import history from "connect-history-api-fallback";
 
 import { entryRouter, EntryRouterOptions } from "./routes/entry.js";
 import { configRouter, ConfigRouterOptions } from "./routes/config.js";
-
-const dirname = path.dirname(new URL(import.meta.url).pathname);
+import { dirname } from "../utils/helper.js";
 
 export type AppOptions = EntryRouterOptions & ConfigRouterOptions;
 

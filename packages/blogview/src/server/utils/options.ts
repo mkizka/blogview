@@ -1,6 +1,7 @@
-import fs from "fs";
 import path from "path";
 import arg from "arg";
+
+import { loadJson } from "./helper.js";
 
 const optionsDefault = {
   entry: "entry",
@@ -13,6 +14,8 @@ export const args = arg(
   {
     "--help": Boolean,
     "-h": "--help",
+    "--version": Boolean,
+    "-v": "--version",
     "--config": String,
     "-c": "--config",
     "--entry": String,
@@ -34,15 +37,6 @@ const optionsFromArgs = removeUndefinedField({
   twitter: !args["--no-twitter"],
   youtube: !args["--no-youtube"],
 });
-
-function loadJson(filepath: string) {
-  const text = fs.readFileSync(filepath, "utf-8");
-  try {
-    return JSON.parse(text) as Record<string, any>;
-  } catch (e) {
-    return null;
-  }
-}
 
 const optionsFromConfig = loadJson(
   path.join(process.cwd(), args["--config"] || "blogview.json")

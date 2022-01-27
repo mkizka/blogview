@@ -1,3 +1,7 @@
+import path from "path";
+
+import { dirname, loadJson } from "./helper.js";
+
 const helpText = `
 Usage: blogview [options]
 
@@ -14,4 +18,9 @@ Details: https://github.com/mkizka/blogview#readme
 
 export function showHelp() {
   console.log(helpText);
+}
+
+export function showVersion() {
+  const pkg = loadJson(path.join(dirname, "..", "..", "..", "package.json"))!;
+  console.log(`v${pkg.version}`);
 }
