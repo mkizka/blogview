@@ -2,12 +2,12 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "rootDir": "src",
-    "outDir": "dist",
-    "resolveJsonModule": true
+    "outDir": "dist"
   },
   "ts-node": {
     "transpileOnly": true,
     "transpiler": "ts-node/transpilers/swc-experimental"
   },
-  "exclude": ["src/client", "node_modules", "*.config.ts"]
+  "include": ["src"],
+  "exclude": ["src/client", "node_modules"]
 }

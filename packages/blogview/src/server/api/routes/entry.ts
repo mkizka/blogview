@@ -2,10 +2,17 @@ import fs from "fs";
 import path from "path";
 import type express from "express";
 import { Router } from "express";
-import { HatenaPluginOptions } from "markdown-it-hatena";
 
-import { renderHatenaMarkdown } from "./utils/render.js";
-import { EntryAllResponse, EntryResponse } from "../../../common/types.js";
+import MarkdownIt from "markdown-it";
+import { markdownItHatena, HatenaPluginOptions } from "markdown-it-hatena";
+import markdownItFrontMatter from "markdown-it-front-matter";
+import yaml from "js-yaml";
+
+import {
+  BlogMeta,
+  EntryAllResponse,
+  EntryResponse,
+} from "../../../common/types.js";
 
 export type EntryRouterOptions = HatenaPluginOptions & {
   entry: string;
@@ -25,6 +32,17 @@ function readRelativeFile(...filepath: string[]) {
   } catch {
     return null;
   }
+}
+
+function renderHatenaMarkdown(text: string, options: HatenaPluginOptions) {
+  let meta: BlogMeta = {};
+  const html = new MarkdownIt({ linkify: true, html: true })
+    .use(markdownItHatena, options)
+    .use(markdownItFrontMatter, (metaRaw) => {
+      meta = yaml.load(metaRaw) as BlogMeta;
+    })
+    .render(text);
+  return { html, meta };
 }
 
 export function entryRouter(options: EntryRouterOptions) {

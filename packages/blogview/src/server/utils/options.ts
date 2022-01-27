@@ -34,8 +34,8 @@ function removeUndefinedField(obj: unknown) {
 const optionsFromArgs = removeUndefinedField({
   entry: args["--entry"],
   styles: args["--style"],
-  twitter: !args["--no-twitter"],
-  youtube: !args["--no-youtube"],
+  twitter: args["--no-twitter"] && false,
+  youtube: args["--no-youtube"] && false,
 });
 
 const optionsFromConfig = loadJson(
