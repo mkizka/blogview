@@ -18,10 +18,25 @@ npm i -g blogview
 $ blogview
 ```
 
-現在のディレクトリに`blogview.json`というファイルを置くと、プレビューに使用する CSS を指定出来ます
+## 設定ファイルの例
 
-```json
+blogview.json というファイルに設定を記述出来ます。設定はコマンドライン引数で上書き出来ます。
+
+```jsonc
 {
-  "styles": ["style.css"]
+  // Markdownファイルを配置するディレクトリを指定 CLIでは -e, --entry
+  "entry": "entry",
+  // プレビューに適用するCSSファイルを指定　CLIでは --style
+  "styles": ["style.json"],
+  // プレビューでツイート埋め込みを変換するかどうか CLIでは --no-twitter
+  "twitter": true,
+  // プレビューでYouTube埋め込みを変換するかどうか CLIでは --no-twitter
+  "youtube": false
 }
+```
+
+設定ファイルのパスはコマンドライン引数で指定することも出来ます。
+
+```
+$ blogview -c blogview.json
 ```
