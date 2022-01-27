@@ -1,5 +1,11 @@
 # markdown-it-hatena
 
+## 2.0.0
+
+### Major Changes
+
+- named export に変更
+
 ## 1.2.1
 
 ### Patch Changes

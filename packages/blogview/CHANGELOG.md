@@ -1,5 +1,16 @@
 # blogview
 
+## 1.3.0
+
+### Minor Changes
+
+- コマンドライン引数と設定ファイルで動作を変更可能に
+
+### Patch Changes
+
+- Updated dependencies
+  - markdown-it-hatena@2.0.0
+
 ## 1.2.1
 
 ### Patch Changes
