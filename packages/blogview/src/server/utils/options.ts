@@ -9,7 +9,7 @@ const optionsDefault = {
   youtube: true,
 };
 
-const args = arg(
+export const args = arg(
   {
     "--help": Boolean,
     "-h": "--help",
