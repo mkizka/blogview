@@ -7,6 +7,7 @@ import { startServer, startLocalChangesWatcher } from "./utils/server.js";
 
 async function main() {
   const options = getOptions();
+  console.log(options);
   const app = createApp(options);
   const server = await startServer(app, port);
   await startLocalChangesWatcher(server, `${process.cwd()}/entry/*.md`);
