@@ -14,7 +14,7 @@
     "build:client": "tsc --project tsconfig.client.json && vite build",
     "build:server": "tsc",
     "test": "vitest run",
-    "blogview": "node dist/server/blogview.js"
+    "blogview": "node --loader ts-node/esm src/server/blogview.ts"
   },
   "devDependencies": {
     "@swc/core": "^1.2.127",
