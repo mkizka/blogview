@@ -10,4 +10,10 @@ export function loadJson(filepath: string) {
   }
 }
 
-export const dirname = path.dirname(new URL(import.meta.url).pathname);
+const dirname = path.dirname(new URL(import.meta.url).pathname);
+
+const pkgRootDir = path.join(dirname, "..", "..", "..");
+
+export function pkgPath(filepath: string) {
+  return path.join(pkgRootDir, filepath);
+}

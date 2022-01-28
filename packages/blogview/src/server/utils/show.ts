@@ -1,6 +1,4 @@
-import path from "path";
-
-import { dirname, loadJson } from "./helper.js";
+import { loadJson, pkgPath } from "./helper.js";
 
 const helpText = `
 Usage: blogview [options]
@@ -22,6 +20,6 @@ export function showHelp() {
 }
 
 export function showVersion() {
-  const pkg = loadJson(path.join(dirname, "..", "..", "..", "package.json"))!;
+  const pkg = loadJson(pkgPath("package.json"))!;
   console.log(`v${pkg.version}`);
 }

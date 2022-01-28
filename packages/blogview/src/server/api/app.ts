@@ -1,10 +1,9 @@
-import path from "path";
 import express from "express";
 import history from "connect-history-api-fallback";
 
 import { entryRouter, EntryRouterOptions } from "./routes/entry.js";
 import { configRouter, ConfigRouterOptions } from "./routes/config.js";
-import { dirname } from "../utils/helper.js";
+import { pkgPath } from "../utils/helper.js";
 
 export type AppOptions = EntryRouterOptions & ConfigRouterOptions;
 
@@ -14,7 +13,7 @@ export function createApp(options: AppOptions) {
   app.use(`/api/config`, configRouter(options));
   app.use(history());
   app.use(
-    express.static(path.join(dirname, "..", "..", "client"), {
+    express.static(pkgPath("dist/client"), {
       setHeaders: (res) => {
         res.setHeader("Cache-Control", "no-store, no-cache, must-revalidate");
       },
