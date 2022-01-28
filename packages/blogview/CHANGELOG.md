@@ -1,5 +1,13 @@
 # blogview
 
+## 1.3.2
+
+### Patch Changes
+
+- 埋め込み記法の使用時に URL をエンコード
+- Updated dependencies
+  - markdown-it-hatena@2.0.1
+
 ## 1.3.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # markdown-it-hatena
 
+## 2.0.1
+
+### Patch Changes
+
+- 埋め込み記法の使用時に URL をエンコード
+
 ## 2.0.0
 
 ### Major Changes
