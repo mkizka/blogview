@@ -32,9 +32,10 @@ function renderLink(notation: HatenaNotationLink, options?: LinkPluginOptions) {
               `allowfullscreen></iframe>`,
             ].join(" ");
           }
+          const encodedUrl = encodeURIComponent(notation.url);
           return [
             "<iframe",
-            `src="https://hatenablog-parts.com/embed?url=${notation.url}"`,
+            `src="https://hatenablog-parts.com/embed?url=${encodedUrl}"`,
             `scrolling="no"`,
             `frameborder="0"`,
             `style="display: block; width: 100%; height: 155px; max-width: 500px; margin: 10px 0px;"`,

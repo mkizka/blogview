@@ -11,6 +11,9 @@ test("埋め込み記法[{url}:embed]の対応", () => {
   const rendered = md.use(linkPlugin).render(src);
   const $ = cheerio.load(rendered);
   expect($("iframe").length).toBe(1);
+  expect($("iframe").attr("src")).toBe(
+    "https://hatenablog-parts.com/embed?url=https%3A%2F%2Fgithub.com"
+  );
 });
 
 test("Twitter埋め込みの対応", () => {
