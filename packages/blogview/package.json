@@ -4,17 +4,17 @@
   "version": "1.3.2",
   "type": "module",
   "bin": {
-    "blogview": "dist/server/blogview.js"
+    "blogview": "dist/server/cli.js"
   },
   "scripts": {
     "dev": "run-p -l dev:server dev:client",
     "dev:client": "wait-on http://localhost:8000 && vite",
-    "dev:server": "nodemon ./src/server/blogview.ts",
+    "dev:server": "nodemon ./src/server/cli.ts",
     "build": "rimraf dist/* && run-p -l build:client build:server",
     "build:client": "tsc --project tsconfig.client.json && vite build",
     "build:server": "tsc",
     "test": "vitest run",
-    "blogview": "node --loader ts-node/esm src/server/blogview.ts"
+    "blogview": "node --loader ts-node/esm src/server/cli.ts"
   },
   "devDependencies": {
     "@swc/core": "^1.2.127",
