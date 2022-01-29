@@ -3,18 +3,20 @@ import arg from "arg";
 
 import { loadJson } from "./helper.js";
 
+const optionsDefault = {
+  entry: "entry",
+  styles: [] as string[],
+  twitter: true,
+  youtube: true,
+};
+
 function removeUndefinedField(obj: unknown) {
   return JSON.parse(JSON.stringify(obj)) as Record<string, any>;
 }
 
-export function getOptions(argv?: string[]) {
-  const optionsDefault = {
-    entry: "entry",
-    styles: [] as string[],
-    twitter: true,
-    youtube: true,
-  };
+export type Options = typeof optionsDefault;
 
+export function getOptions(argv?: string[]) {
   const args = arg(
     {
       "--config": String,
