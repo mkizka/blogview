@@ -3,7 +3,7 @@ import arg from "arg";
 
 import { loadJson } from "./helper.js";
 
-const optionsDefault = {
+export const optionsDefault = {
   entry: "entry",
   styles: [] as string[],
   twitter: true,
