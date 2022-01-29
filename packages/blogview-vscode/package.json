@@ -35,7 +35,6 @@
     }
   },
   "scripts": {
-    "vscode:prepublish": "pnpm build",
     "build": "esbuild ./src/extension.ts --bundle --outdir=dist --external:vscode --format=cjs --platform=node --minify",
     "dev": "pnpm build -- --watch",
     "package": "pnpm vsce package --no-dependencies",
