@@ -1,6 +1,6 @@
 import { loadJson, pkgPath } from "./helper.js";
 
-const helpText = `
+export const helpText = `
 Usage: blogview [options]
 
 Options:
