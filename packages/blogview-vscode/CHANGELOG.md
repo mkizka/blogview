@@ -1,5 +1,11 @@
 # blogview-vscode
 
+## 1.3.0
+
+### Minor Changes
+
+- ブラウザで拡張機能を実行できるように
+
 ## 1.2.6
 
 ### Patch Changes
