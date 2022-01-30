@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "build": "turbo run build",
-    "test": "turbo run test --continue",
+    "test": "turbo run test",
     "dev": "turbo run dev",
     "format": "prettier -w .",
     "new-version": "changeset version && pnpm format && pnpm i --ignore-scripts"
@@ -24,7 +24,11 @@
           "dist/**"
         ]
       },
-      "test": {},
+      "test": {
+        "dependsOn": [
+          "build"
+        ]
+      },
       "dev": {
         "cache": false
       }
