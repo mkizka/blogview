@@ -13,6 +13,7 @@
   ],
   "activationEvents": [],
   "main": "./dist/extension.js",
+  "browser": "./dist/extension.js",
   "contributes": {
     "markdown.markdownItPlugins": true,
     "markdown.previewScripts": [
