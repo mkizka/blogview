@@ -9,5 +9,5 @@
     "transpiler": "ts-node/transpilers/swc-experimental"
   },
   "include": ["src"],
-  "exclude": ["src/client", "node_modules"]
+  "exclude": ["src/client", "**/*.spec.ts"]
 }
