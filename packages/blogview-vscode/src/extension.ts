@@ -1,16 +1,19 @@
 import vscode from "vscode";
 import type MarkdownIt from "markdown-it";
-import { markdownItHatena } from "markdown-it-hatena";
+import { HatenaPluginOptions, markdownItHatena } from "markdown-it-hatena";
+
+export function getOptions(): HatenaPluginOptions {
+  const config = vscode.workspace.getConfiguration("blogview");
+  return {
+    twitter: config.get<boolean>("enableTwitter")!,
+    youtube: config.get<boolean>("enableYoutube")!,
+  };
+}
 
 export function activate() {
-  const config = vscode.workspace.getConfiguration("blogview");
-  const options = {
-    twitter: config.get("enableTwitter"),
-    youtube: config.get("enableYoutube"),
-  };
   return {
     extendMarkdownIt(md: MarkdownIt) {
-      return md.use(markdownItHatena, options);
+      return md.use(markdownItHatena, getOptions());
     },
   };
 }
