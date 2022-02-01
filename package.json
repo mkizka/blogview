@@ -9,9 +9,9 @@
     "new-version": "changeset version && pnpm format && pnpm i --ignore-scripts"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.19.0",
+    "@changesets/cli": "^2.20.0",
     "prettier": "^2.5.1",
-    "turbo": "^1.0.26"
+    "turbo": "^1.1.2"
   },
   "turbo": {
     "baseBranch": "origin/main",
