@@ -20,10 +20,8 @@ jobs:
           cache: "pnpm"
       - name: 依存ライブラリのインストール
         run: pnpm i
-      - name: パッケージのビルド
-        run: pnpm build
       - name: テスト実行
-        run: pnpm test -- --only
+        run: pnpm test
 
   # https://code.visualstudio.com/api/working-with-extensions/continuous-integration#github-actions
   test-vscode:
@@ -43,13 +41,11 @@ jobs:
           cache: "pnpm"
       - name: 依存ライブラリのインストール
         run: pnpm i
-      - name: パッケージのビルド
-        run: pnpm build
       - name: テスト実行(Linux)
-        run: xvfb-run -a "pnpm test:vscode --filter blogview-vscode"
+        run: xvfb-run -a "pnpm test-vscode"
         if: runner.os == 'Linux'
       - name: テスト実行(Linux以外)
-        run: pnpm test -- --only
+        run: pnpm test-vscode
         if: runner.os != 'Linux'
 
   release:
