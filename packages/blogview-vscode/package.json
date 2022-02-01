@@ -40,7 +40,7 @@
     "dev": "pnpm build -- --watch",
     "package": "pnpm vsce package --no-dependencies",
     "release": "pnpm vsce publish --no-dependencies",
-    "test": "tsc -p tsconfig.test.json && ts-node scripts/runTest.ts"
+    "test-vscode": "tsc -p tsconfig.test.json && ts-node scripts/runTest.ts"
   },
   "devDependencies": {
     "@types/node": "16.x",

@@ -1,4 +1,4 @@
-name: Release
+name: テストとバージョン公開
 
 on:
   push:
@@ -6,37 +6,70 @@ on:
       - main
 
 jobs:
-  release:
-    name: Release
+  test-packages:
+    name: テスト：ライブラリ
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v2
-        with:
-          # This makes Actions fetch all Git history so that Changesets can generate changelogs with the correct commits
-          fetch-depth: 0
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2.0.1
+      - uses: actions/checkout@v2
+      - uses: pnpm/action-setup@v2.0.1
         with:
           version: 6
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
+      - uses: actions/setup-node@v2
         with:
           node-version: 16
           cache: "pnpm"
-
-      - name: Install Dependencies
+      - name: 依存ライブラリのインストール
         run: pnpm i
-
-      - name: Build Packages
+      - name: パッケージのビルド
         run: pnpm build
-
-      - name: Run Tests
+      - name: テスト実行
         run: pnpm test -- --only
 
-      - name: Create Release Pull Request or Publish to npm
+  # https://code.visualstudio.com/api/working-with-extensions/continuous-integration#github-actions
+  test-vscode:
+    name: テスト：VSCode
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 6
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          cache: "pnpm"
+      - name: 依存ライブラリのインストール
+        run: pnpm i
+      - name: パッケージのビルド
+        run: pnpm build
+      - name: テスト実行(Linux)
+        run: xvfb-run -a "pnpm test:vscode --filter blogview-vscode"
+        if: runner.os == 'Linux'
+      - name: テスト実行(Linux以外)
+        run: pnpm test -- --only
+        if: runner.os != 'Linux'
+
+  release:
+    name: バージョン公開
+    runs-on: ubuntu-latest
+    needs: [test-packages, test-vscode]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 6
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          cache: "pnpm"
+      - name: 依存ライブラリのインストール
+        run: pnpm i
+      - name: パッケージのビルド
+        run: pnpm build
+      - name: リリースPR作成 or npmに公開
         id: changesets
         uses: changesets/action@v1
         with:
@@ -46,8 +79,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Publish blogview-vscode
+      - name: blogview-vscodeのリリース
         run: |
           cd packages/blogview-vscode
           PUBLISHED=$(pnpm vsce search blogview-vscode --json | jq -r '.[].versions[0].version')

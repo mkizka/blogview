@@ -4,6 +4,7 @@
   "scripts": {
     "build": "turbo run build",
     "test": "turbo run test",
+    "test-vscode": "turbo run test-vscode",
     "dev": "turbo run dev",
     "format": "prettier -w .",
     "new-version": "changeset version && pnpm format && pnpm i --ignore-scripts"

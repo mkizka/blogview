@@ -2,17 +2,14 @@
   "baseBranch": "origin/main",
   "pipeline": {
     "build": {
-      "dependsOn": [
-        "^build"
-      ],
-      "outputs": [
-        "dist/**"
-      ]
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**"]
     },
     "test": {
-      "dependsOn": [
-        "build"
-      ]
+      "dependsOn": ["markdown-it-hatena#build"]
+    },
+    "test-vscode": {
+      "dependsOn": ["markdown-it-hatena#build"]
     },
     "dev": {
       "cache": false
