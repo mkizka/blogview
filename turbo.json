@@ -6,7 +6,7 @@
       "outputs": ["dist/**"]
     },
     "test": {
-      "dependsOn": ["markdown-it-hatena#build"]
+      "dependsOn": ["markdown-it-hatena#build", "blogview#build"]
     },
     "test-vscode": {
       "dependsOn": ["markdown-it-hatena#build"]
