@@ -4,5 +4,7 @@
     "module": "commonjs",
     "rootDir": "src",
     "noEmit": true
-  }
+  },
+  "include": ["src"],
+  "exclude": ["**/*.spec.ts"]
 }
