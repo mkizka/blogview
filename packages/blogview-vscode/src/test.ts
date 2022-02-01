@@ -14,15 +14,16 @@ export async function run() {
     ui: "tdd",
     color: true,
   });
-
   const files = await globby(path.join(__dirname, "../dist-test/**/*.spec.js"));
-  console.log(files);
   for (const file of files) {
     mocha.addFile(file);
   }
-  mocha.run((failures) => {
-    if (failures > 0) {
-      throw new Error(`${failures} tests failed.`);
-    }
+  await new Promise<void>((resolve, reject) => {
+    mocha.run((failures) => {
+      if (failures > 0) {
+        reject(new Error(`${failures} tests failed.`));
+      }
+      resolve();
+    });
   });
 }

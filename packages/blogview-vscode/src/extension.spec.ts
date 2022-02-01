@@ -4,7 +4,7 @@ import { getOptions } from "./extension";
 suite("拡張機能のテスト", () => {
   test("オプションの取得", () => {
     const options = getOptions();
-    assert.deepEqual(options, {
+    assert.deepStrictEqual(options, {
       twitter: true,
       youtube: true,
     });
