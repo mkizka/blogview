@@ -42,7 +42,7 @@ jobs:
       - name: 依存ライブラリのインストール
         run: pnpm i
       - name: テスト実行(Linux)
-        run: xvfb-run -a "pnpm test-vscode"
+        run: xvfb-run -a pnpm test-vscode
         if: runner.os == 'Linux'
       - name: テスト実行(Linux以外)
         run: pnpm test-vscode
