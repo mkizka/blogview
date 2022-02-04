@@ -37,9 +37,11 @@ function readRelativeFile(...filepath: string[]) {
 function renderHatenaMarkdown(text: string, options: HatenaPluginOptions) {
   let meta: BlogMeta = {};
   const html = new MarkdownIt({ linkify: true, html: true })
-    .use(markdownItHatena, options)
-    .use(markdownItFrontMatter, (metaRaw) => {
-      meta = yaml.load(metaRaw) as BlogMeta;
+    .use(markdownItHatena, {
+      ...options,
+      cb: (_meta: BlogMeta) => {
+        meta = _meta;
+      },
     })
     .render(text);
   return { html, meta };
