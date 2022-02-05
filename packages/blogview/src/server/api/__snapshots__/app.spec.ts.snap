@@ -1,6 +1,6 @@
 // Vitest Snapshot v1
 
-exports[`GET /api/entry/:slug > 個別の記事を返す 1`] = `
+exports[`GET /api/entry/* > 個別の記事を返す 1`] = `
 "<header class=\\"entry-header\\">
   <div class=\\"date entry-date first\\">
     <a href=\\"\\" rel=\\"nofollow\\">

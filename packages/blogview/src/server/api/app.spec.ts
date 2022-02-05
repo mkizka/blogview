@@ -50,11 +50,20 @@ describe("GET /api/entry", () => {
   });
 });
 
-describe("GET /api/entry/:slug", async () => {
+describe("GET /api/entry/*", async () => {
   test("個別の記事を返す", async () => {
     const app = createApp(optionsDefault);
     const entry = await request(app).get("/api/entry/entry1");
     expect(entry.body.html).toMatchSnapshot();
     expect(entry.body.meta).toMatchObject({});
+  });
+  test("ディレクトリ下の記事でも返す", async () => {
+    const app = createApp(optionsDefault);
+    const entry2 = await request(app).get("/api/entry/dir/entry2");
+    const entry3 = await request(app).get("/api/entry/nested/dir/entry3");
+    const noEntry = await request(app).get("/api/entry/no/entry");
+    expect(entry2.ok).toBe(true);
+    expect(entry3.ok).toBe(true);
+    expect(noEntry.ok).toBe(false);
   });
 });
