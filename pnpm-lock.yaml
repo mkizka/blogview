@@ -22,6 +22,7 @@ importers:
       '@types/node': ^17.0.15
       '@types/react': ^17.0.39
       '@types/react-dom': ^17.0.11
+      '@types/recursive-readdir': ^2.2.0
       '@types/supertest': ^2.0.11
       '@types/ws': ^8.2.2
       '@vitejs/plugin-react': ^1.1.4
@@ -38,6 +39,7 @@ importers:
       react-dom: ^17.0.2
       react-helmet-async: ^1.2.2
       react-router-dom: ^6.2.1
+      recursive-readdir: ^2.2.2
       rimraf: ^3.0.2
       rollup-plugin-string: ^3.0.0
       supertest: ^6.2.2
@@ -54,6 +56,7 @@ importers:
       express: 4.17.2
       markdown-it: 12.3.2
       markdown-it-hatena: link:../markdown-it-hatena
+      recursive-readdir: 2.2.2
       ws: 8.4.2
     devDependencies:
       '@swc/core': 1.2.136
@@ -64,6 +67,7 @@ importers:
       '@types/node': 17.0.15
       '@types/react': 17.0.39
       '@types/react-dom': 17.0.11
+      '@types/recursive-readdir': 2.2.0
       '@types/supertest': 2.0.11
       '@types/ws': 8.2.2
       '@vitejs/plugin-react': 1.1.4
@@ -1017,6 +1021,12 @@ packages:
       '@types/prop-types': 15.7.4
       '@types/scheduler': 0.16.2
       csstype: 3.0.10
+    dev: true
+
+  /@types/recursive-readdir/2.2.0:
+    resolution: {integrity: sha512-HGk753KRu2N4mWduovY4BLjYq4jTOL29gV2OfGdGxHcPSWGFkC5RRIdk+VTs5XmYd7MVAD+JwKrcb5+5Y7FOCg==}
+    dependencies:
+      '@types/node': 17.0.15
     dev: true
 
   /@types/scheduler/0.16.2:
@@ -4227,6 +4237,13 @@ packages:
     engines: {node: '>=8.10.0'}
     dependencies:
       picomatch: 2.3.1
+
+  /recursive-readdir/2.2.2:
+    resolution: {integrity: sha512-nRCcW9Sj7NuZwa2XvH9co8NPeXUBhZP7CRKJtU+cS6PW9FpCIFoI5ib0NT1ZrbNuPoRy0ylyCaUL8Gih4LSyFg==}
+    engines: {node: '>=0.10.0'}
+    dependencies:
+      minimatch: 3.0.4
+    dev: false
 
   /redent/3.0.0:
     resolution: {integrity: sha512-6tDA8g98We0zd0GvVeMT9arEOnTw9qM03L9cJXaCjrip1OO764RDBLBfrB4cwzNGDj5OA5ioymC9GkizgWJDUg==}

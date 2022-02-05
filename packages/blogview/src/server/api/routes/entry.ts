@@ -5,8 +5,7 @@ import { Router } from "express";
 
 import MarkdownIt from "markdown-it";
 import { markdownItHatena, HatenaPluginOptions } from "markdown-it-hatena";
-import markdownItFrontMatter from "markdown-it-front-matter";
-import yaml from "js-yaml";
+import readDir from "recursive-readdir";
 
 import {
   BlogMeta,
@@ -18,9 +17,11 @@ export type EntryRouterOptions = HatenaPluginOptions & {
   entry: string;
 };
 
-function readRelativeDir(dir: string) {
+async function readRelativeDir(dir: string) {
   try {
-    return fs.readdirSync(path.join(process.cwd(), dir), "utf-8");
+    const targetDir = path.join(process.cwd(), dir);
+    const filepaths = await readDir(targetDir);
+    return filepaths.map((filepath) => path.relative(targetDir, filepath));
   } catch {
     return [];
   }
@@ -52,7 +53,7 @@ export function entryRouter(options: EntryRouterOptions) {
   router.get(
     "/",
     async (_: express.Request, res: express.Response<EntryAllResponse>) => {
-      const entryFiles = readRelativeDir(options.entry);
+      const entryFiles = await readRelativeDir(options.entry);
       const entryMetaPromises = entryFiles.map(async (entryFile) => {
         const entryRaw = readRelativeFile(options.entry, entryFile)!;
         return {
