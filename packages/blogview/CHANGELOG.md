@@ -1,5 +1,13 @@
 # blogview
 
+## 1.4.1
+
+### Patch Changes
+
+- Markdown ファイルをディレクトリ下に置けるように
+- Updated dependencies
+  - markdown-it-hatena@2.1.1
+
 ## 1.4.0
 
 ### Minor Changes

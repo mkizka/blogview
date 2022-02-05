@@ -1,5 +1,11 @@
 # markdown-it-hatena
 
+## 2.1.1
+
+### Patch Changes
+
+- カテゴリ表示の修正
+
 ## 2.1.0
 
 ### Minor Changes
