@@ -1,7 +1,25 @@
 // Vitest Snapshot v1
 
 exports[`GET /api/entry/:slug > 個別の記事を返す 1`] = `
-"
+"<header class=\\"entry-header\\">
+  <div class=\\"date entry-date first\\">
+    <a href=\\"\\" rel=\\"nofollow\\">
+      <time datetime=\\"Fri Dec 31 2021 00:32:03 GMT+0900 (Japan Standard Time)\\" title=\\"Fri Dec 31 2021 00:32:03 GMT+0900 (Japan Standard Time)\\">
+        <span class=\\"date-year\\">2021</span>
+        <span class=\\"hyphen\\">-</span>
+        <span class=\\"date-month\\">12</span>
+        <span class=\\"hyphen\\">-</span>
+        <span class=\\"date-day\\">31</span>
+      </time>
+    </a>
+  </div>
+  <h1 class=\\"entry-title\\">
+    <a href=\\"\\" class=\\"entry-title-link bookmark\\">エントリ1</a>
+  </h1>
+  <div class=\\"entry-categories categories\\">
+    <a href=\\"\\" class=\\"entry-category-link category-ブクマ数ランキング\\">カテゴリ1</a>
+  </div>
+</header>
 <p><div class=\\"table-of-contents\\"><ul><li><ul><li><a href=\\"#%E6%AE%B5%E8%90%BD\\">段落</a></li><li><a href=\\"#%E7%94%BB%E5%83%8F%EF%BC%88%E3%81%AF%E3%81%A6%E3%81%AA%E3%83%95%E3%82%A9%E3%83%88%E3%83%A9%E3%82%A4%E3%83%95%EF%BC%89\\">画像（はてなフォトライフ）</a></li><li><a href=\\"#%E8%84%9A%E6%B3%A8\\">脚注</a></li><li><a href=\\"#%E7%B6%9A%E3%81%8D%E3%82%92%E8%AA%AD%E3%82%80\\">続きを読む</a></li><li><a href=\\"#%E7%BD%AB%E7%B7%9A\\">罫線</a></li></ul></li><li><a href=\\"#h1-%E8%A6%8B%E5%87%BA%E3%81%97\\">h1 見出し</a><ul><li><a href=\\"#h2-%E8%A6%8B%E5%87%BA%E3%81%97\\">h2 見出し</a><ul><li><a href=\\"#h3-%E8%A6%8B%E5%87%BA%E3%81%97\\">h3 見出し</a><ul><li><a href=\\"#h4-%E8%A6%8B%E5%87%BA%E3%81%97\\">h4 見出し</a><ul><li><a href=\\"#h5-%E8%A6%8B%E5%87%BA%E3%81%97\\">h5 見出し</a><ul><li><a href=\\"#h6-%E8%A6%8B%E5%87%BA%E3%81%97\\">h6 見出し</a></li></ul></li></ul></li></ul></li></ul></li><li><a href=\\"#asin\\">asin</a></li><li><a href=\\"#%E5%BC%95%E7%94%A8\\">引用</a></li><li><a href=\\"#%E3%83%AA%E3%82%B9%E3%83%88%EF%BC%88ul%2Col%2Cdl%EF%BC%89\\">リスト（ul,ol,dl）</a></li><li><a href=\\"#%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB\\">テーブル</a></li><li><a href=\\"#%E3%82%B3%E3%83%BC%E3%83%89%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF\\">コードブロック</a></li><li><a href=\\"#%E3%83%84%E3%82%A4%E3%83%BC%E3%83%88%E5%9F%8B%E3%82%81%E8%BE%BC%E3%81%BF\\">ツイート埋め込み</a></li><li><a href=\\"#web-%E3%82%B5%E3%82%A4%E3%83%88%E5%9F%8B%E3%82%81%E8%BE%BC%E3%81%BF\\">Web サイト埋め込み</a></li><li><a href=\\"#youtube-%E5%9F%8B%E3%82%81%E8%BE%BC%E3%81%BF\\">YouTube 埋め込み</a></li></ul></li></ul></div></p>
 <h2 id=\\"%E6%AE%B5%E8%90%BD\\" tabindex=\\"-1\\">段落</h2>
 <p>あのイーハトヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモーリオ市、郊外のぎらぎら光る草の波。</p>
