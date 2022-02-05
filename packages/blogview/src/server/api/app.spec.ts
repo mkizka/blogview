@@ -35,9 +35,18 @@ describe("GET /api/entry", () => {
     const app = createApp(optionsDefault);
     const entryRoot = await request(app).get("/api/entry");
     expect(entryRoot.body.length).toBe(3);
-    expect(entryRoot.body[0]).toMatchObject({ slug: "entry1", meta: {} });
-    expect(entryRoot.body[1]).toMatchObject({ slug: "entry3", meta: {} });
-    expect(entryRoot.body[2]).toMatchObject({ slug: "entry2", meta: {} });
+    expect(entryRoot.body[0]).toMatchObject({
+      slug: "entry1", //
+      meta: {},
+    });
+    expect(entryRoot.body[1]).toMatchObject({
+      slug: "nested/dir/entry3",
+      meta: {},
+    });
+    expect(entryRoot.body[2]).toMatchObject({
+      slug: "dir/entry2", //
+      meta: {},
+    });
   });
 });
 
