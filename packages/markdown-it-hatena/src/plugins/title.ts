@@ -35,10 +35,12 @@ export const titlePlugin: PluginWithOptions<TitlePluginOptions> = (
     <a href="" class="entry-title-link bookmark">${meta.title}</a>
   </h1>
   <div class="entry-categories categories">
-    ${meta.categories.map(
-      (category: string) =>
-        `<a href="" class="entry-category-link category-${category}">${category}</a>`
-    )}
+    ${meta.categories
+      .map(
+        (category: string) =>
+          `<a href="" class="entry-category-link category-${category}">${category}</a>`
+      )
+      .join("\n")}
   </div>
 </header>
 `.trim();
