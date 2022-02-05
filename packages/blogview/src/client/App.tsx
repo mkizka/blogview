@@ -28,7 +28,7 @@ export function App() {
       </Helmet>
       <Routes>
         <Route path="/" element={<TopPage />} />
-        <Route path="/entry/:slug" element={<EntryPage />} />
+        <Route path="/entry/*" element={<EntryPage />} />
       </Routes>
     </BrowserRouter>
   );

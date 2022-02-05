@@ -70,9 +70,9 @@ export function entryRouter(options: EntryRouterOptions) {
     }
   );
   router.get(
-    "/:slug",
+    "/*",
     async (req: express.Request, res: express.Response<EntryResponse>) => {
-      const entry = readRelativeFile(options.entry, `${req.params.slug}.md`);
+      const entry = readRelativeFile(options.entry, `${req.params[0]}.md`);
       if (entry != null) {
         res.json(renderHatenaMarkdown(entry, options));
       } else {

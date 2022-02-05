@@ -6,10 +6,10 @@ import { EntryResponse } from "../../common/types";
 
 export function EntryPage() {
   const [entry, setEntry] = useState<EntryResponse | null>(null);
-  const { slug } = useParams();
+  const params = useParams();
 
   useLocalFileChangedEffect(async () => {
-    const result = await fetch(`/api/entry/${slug}`);
+    const result = await fetch(`/api/entry/${params["*"]}`);
     setEntry(await result.json());
   });
 
