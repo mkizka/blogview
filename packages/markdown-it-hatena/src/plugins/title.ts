@@ -37,7 +37,7 @@ export const titlePlugin: PluginWithOptions<TitlePluginOptions> = (
   <div class="entry-categories categories">
     ${meta.categories.map(
       (category: string) =>
-        `<a href="" class="entry-category-link category-ブクマ数ランキング">${category}</a>`
+        `<a href="" class="entry-category-link category-${category}">${category}</a>`
     )}
   </div>
 </header>
