@@ -1,5 +1,16 @@
 # blogview
 
+## 1.4.0
+
+### Minor Changes
+
+- 記事タイトルを描画
+
+### Patch Changes
+
+- Updated dependencies
+  - markdown-it-hatena@2.1.0
+
 ## 1.3.2
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # markdown-it-hatena
 
+## 2.1.0
+
+### Minor Changes
+
+- 記事タイトルを描画
+
 ## 2.0.1
 
 ### Patch Changes
