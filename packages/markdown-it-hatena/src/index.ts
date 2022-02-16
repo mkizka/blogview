@@ -4,6 +4,8 @@ import { contentsPlugin } from "./plugins/contents";
 import { linkPlugin, LinkPluginOptions } from "./plugins/link";
 import { titlePlugin, TitlePluginOptions } from "./plugins/title";
 
+export { BlogMeta } from "./plugins/title";
+
 export type HatenaPluginOptions = LinkPluginOptions & TitlePluginOptions;
 
 export const markdownItHatena: PluginWithOptions<HatenaPluginOptions> = (

@@ -4,14 +4,14 @@ import type express from "express";
 import { Router } from "express";
 
 import MarkdownIt from "markdown-it";
-import { markdownItHatena, HatenaPluginOptions } from "markdown-it-hatena";
+import {
+  markdownItHatena,
+  HatenaPluginOptions,
+  BlogMeta,
+} from "markdown-it-hatena";
 import readDir from "recursive-readdir";
 
-import {
-  BlogMeta,
-  EntryAllResponse,
-  EntryResponse,
-} from "../../../common/types.js";
+import { EntryAllResponse, EntryResponse } from "../../../common/types.js";
 
 export type EntryRouterOptions = HatenaPluginOptions & {
   entry: string;

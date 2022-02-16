@@ -1,10 +1,4 @@
-export type BlogMeta = {
-  categories?: string[];
-  date?: string;
-  draft?: boolean;
-  id?: string;
-  title?: string;
-};
+import { BlogMeta } from "markdown-it-hatena";
 
 export type EntryResponse = {
   html: string;
