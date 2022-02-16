@@ -1,5 +1,11 @@
 # markdown-it-hatena
 
+## 2.1.2
+
+### Patch Changes
+
+- ヘッダのプロパティが不足している場合のエラーを修正
+
 ## 2.1.1
 
 ### Patch Changes

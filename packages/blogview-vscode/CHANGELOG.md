@@ -1,5 +1,13 @@
 # blogview-vscode
 
+## 1.4.2
+
+### Patch Changes
+
+- ヘッダのプロパティが不足している場合のエラーを修正
+- Updated dependencies
+  - markdown-it-hatena@2.1.2
+
 ## 1.4.1
 
 ### Patch Changes
