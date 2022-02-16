@@ -4,7 +4,7 @@ exports[`GET /api/entry/* > 個別の記事を返す 1`] = `
 "<header class=\\"entry-header\\">
   <div class=\\"date entry-date first\\">
     <a href=\\"\\" rel=\\"nofollow\\">
-      <time datetime=\\"Fri Dec 31 2021 00:32:03 GMT+0900 (Japan Standard Time)\\" title=\\"Fri Dec 31 2021 00:32:03 GMT+0900 (Japan Standard Time)\\">
+      <time datetime=\\"2021-12-30T15:32:03.000Z\\" title=\\"2021-12-30T15:32:03.000Z\\">
         <span class=\\"date-year\\">2021</span>
         <span class=\\"hyphen\\">-</span>
         <span class=\\"date-month\\">12</span>

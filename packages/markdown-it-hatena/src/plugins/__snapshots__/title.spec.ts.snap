@@ -1,0 +1,57 @@
+// Vitest Snapshot v1
+
+exports[`カテゴリを描画 1`] = `
+"<header class=\\"entry-header\\">
+  <div class=\\"entry-categories categories\\">
+    <a href=\\"\\" class=\\"entry-category-link category-カテゴリ1\\">カテゴリ1</a>
+    <a href=\\"\\" class=\\"entry-category-link category-カテゴリ2\\">カテゴリ2</a>
+  </div>
+</header>"
+`;
+
+exports[`タイトルを描画 1`] = `
+"<header class=\\"entry-header\\">
+  <h1 class=\\"entry-title\\">
+    <a href=\\"\\" class=\\"entry-title-link bookmark\\">タイトル</a>
+  </h1>
+</header>"
+`;
+
+exports[`ヘッダ全て描画 1`] = `
+"<header class=\\"entry-header\\">
+  <div class=\\"date entry-date first\\">
+    <a href=\\"\\" rel=\\"nofollow\\">
+      <time datetime=\\"2021-12-30T15:32:03.000Z\\" title=\\"2021-12-30T15:32:03.000Z\\">
+        <span class=\\"date-year\\">2021</span>
+        <span class=\\"hyphen\\">-</span>
+        <span class=\\"date-month\\">12</span>
+        <span class=\\"hyphen\\">-</span>
+        <span class=\\"date-day\\">31</span>
+      </time>
+    </a>
+  </div>
+  <h1 class=\\"entry-title\\">
+    <a href=\\"\\" class=\\"entry-title-link bookmark\\">タイトル</a>
+  </h1>
+  <div class=\\"entry-categories categories\\">
+    <a href=\\"\\" class=\\"entry-category-link category-カテゴリ1\\">カテゴリ1</a>
+    <a href=\\"\\" class=\\"entry-category-link category-カテゴリ2\\">カテゴリ2</a>
+  </div>
+</header>"
+`;
+
+exports[`日付を描画 1`] = `
+"<header class=\\"entry-header\\">
+  <div class=\\"date entry-date first\\">
+    <a href=\\"\\" rel=\\"nofollow\\">
+      <time datetime=\\"2021-12-30T15:32:03.000Z\\" title=\\"2021-12-30T15:32:03.000Z\\">
+        <span class=\\"date-year\\">2021</span>
+        <span class=\\"hyphen\\">-</span>
+        <span class=\\"date-month\\">12</span>
+        <span class=\\"hyphen\\">-</span>
+        <span class=\\"date-day\\">31</span>
+      </time>
+    </a>
+  </div>
+</header>"
+`;
