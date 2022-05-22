@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "run-p -l --silent dev:server dev:client",
     "dev:client": "wait-on http://localhost:8000 && vite",
-    "dev:server": "nodemon ./src/server/cli.ts",
+    "dev:server": "nodemon",
     "build": "rimraf dist/* && run-p -l --silent build:client build:server",
     "build:client": "tsc --project tsconfig.client.json && vite build",
     "build:server": "tsc",

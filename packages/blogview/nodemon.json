@@ -1,8 +1,5 @@
 {
-  "restartable": "rs",
-  "ignore": [".git", "node_modules/**/node_modules", "lib/**/*"],
-  "execMap": {
-    "ts": "node --loader ts-node/esm"
-  },
+  "ignore": ["dist"],
+  "exec": "node --loader ts-node/esm ./src/server/cli.ts",
   "ext": "ts,js,json"
 }
