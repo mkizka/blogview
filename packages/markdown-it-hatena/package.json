@@ -12,7 +12,7 @@
     "@types/js-yaml": "^4.0.5",
     "js-yaml": "^4.1.0",
     "markdown-it": "^12.3.2",
-    "markdown-it-anchor": "^8.4.1",
+    "markdown-it-anchor": "^8.6.4",
     "markdown-it-front-matter": "^0.2.3",
     "markdown-it-table-of-contents": "^0.6.0",
     "url-regex": "^5.0.0"
@@ -20,10 +20,10 @@
   "devDependencies": {
     "@types/markdown-it": "^12.2.3",
     "@types/markdown-it-container": "^2.0.5",
-    "@vitest/ui": "^0.2.7",
-    "cheerio": "^1.0.0-rc.10",
-    "typescript": "^4.5.5",
-    "vitest": "^0.2.7"
+    "@vitest/ui": "^0.2.8",
+    "cheerio": "^1.0.0-rc.11",
+    "typescript": "^4.6.4",
+    "vitest": "^0.2.8"
   },
   "files": [
     "dist"
