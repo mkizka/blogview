@@ -30,6 +30,20 @@ export class TreeDataProvider
     const files = await vscode.workspace.fs.readDirectory(
       vscode.Uri.joinPath(rootPath, "entry")
     );
-    return files.map(([file]) => new vscode.TreeItem(file));
+    return files.map(
+      ([file]) =>
+        new EntryTreeItem(vscode.Uri.joinPath(rootPath, "entry", file))
+    );
+  }
+}
+
+class EntryTreeItem extends vscode.TreeItem {
+  constructor(uri: vscode.Uri) {
+    super(uri.path);
+    this.command = {
+      title: "",
+      command: "blogview.openEntry",
+      arguments: [uri],
+    };
   }
 }

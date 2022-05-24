@@ -17,7 +17,14 @@ const provider = new TreeDataProvider();
 export function activate() {
   console.log("blogview activated");
   vscode.window.registerTreeDataProvider("blogview", provider);
-  vscode.commands.registerCommand("blogview.refreshEntry", () =>
+  vscode.commands.registerCommand(
+    "blogview.openEntry",
+    async (uri: vscode.Uri) => {
+      const doc = await vscode.workspace.openTextDocument(uri);
+      await vscode.window.showTextDocument(doc, vscode.ViewColumn.One, true);
+    }
+  );
+  vscode.commands.registerCommand("blogview.refreshEntries", () =>
     provider.refresh()
   );
   vscode.workspace.onDidSaveTextDocument(() => provider.refresh());
