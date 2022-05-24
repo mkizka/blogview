@@ -11,7 +11,9 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "workspaceContains:/entry/"
+  ],
   "main": "./dist/extension.js",
   "browser": "./dist/extension.js",
   "contributes": {
@@ -19,6 +21,14 @@
     "markdown.previewScripts": [
       "./tweet.js"
     ],
+    "views": {
+      "explorer": [
+        {
+          "id": "blogview",
+          "name": "記事一覧"
+        }
+      ]
+    },
     "configuration": {
       "title": "Blogview",
       "properties": {
