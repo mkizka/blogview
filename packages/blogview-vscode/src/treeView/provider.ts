@@ -1,5 +1,7 @@
 import vscode from "vscode";
 
+import { createEntryTreeItem } from "./treeItem";
+
 export class TreeDataProvider
   implements vscode.TreeDataProvider<vscode.TreeItem>
 {
@@ -15,35 +17,43 @@ export class TreeDataProvider
     return element;
   }
 
-  async getChildren(element?: vscode.TreeItem) {
-    const rootPath =
-      vscode.workspace.workspaceFolders &&
-      vscode.workspace.workspaceFolders.length > 0
-        ? vscode.workspace.workspaceFolders[0].uri
-        : undefined;
-    if (rootPath == undefined) {
+  getChildren(element?: vscode.TreeItem) {
+    const rootUri = getWorkspaceFolderUri();
+    if (rootUri == null) {
       vscode.window.showInformationMessage(
-        "ワークスペースを読み込めませんでした"
+        "ワークスペースを取得できませんでした。"
       );
-      return Promise.resolve([]);
+      return null;
     }
-    const files = await vscode.workspace.fs.readDirectory(
-      vscode.Uri.joinPath(rootPath, "entry")
-    );
-    return files.map(
-      ([file]) =>
-        new EntryTreeItem(vscode.Uri.joinPath(rootPath, "entry", file))
-    );
+    // ルートではentryディレクトリ、子要素では
+    // 要素自身のresourceUriを使ってファイルを取得する
+    const targetUri =
+      element?.resourceUri != undefined
+        ? element.resourceUri
+        : vscode.Uri.joinPath(rootUri, "entry");
+    return getChildEntryTreeItems(targetUri);
   }
 }
 
-class EntryTreeItem extends vscode.TreeItem {
-  constructor(uri: vscode.Uri) {
-    super(uri.path);
-    this.command = {
-      title: "",
-      command: "blogview.openEntry",
-      arguments: [uri],
-    };
+function getWorkspaceFolderUri() {
+  if (
+    vscode.workspace.workspaceFolders &&
+    vscode.workspace.workspaceFolders.length > 0
+  ) {
+    return vscode.workspace.workspaceFolders[0].uri;
   }
+  return null;
+}
+
+async function getChildEntryTreeItems(targetUri: vscode.Uri) {
+  const files = await vscode.workspace.fs.readDirectory(targetUri);
+  const promises = files.map(async ([filename, type]) => {
+    const uri = vscode.Uri.joinPath(targetUri, filename);
+    const state =
+      type == vscode.FileType.Directory
+        ? vscode.TreeItemCollapsibleState.Collapsed
+        : vscode.TreeItemCollapsibleState.None;
+    return createEntryTreeItem(uri, state);
+  });
+  return Promise.all(promises);
 }

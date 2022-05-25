@@ -15,7 +15,6 @@ export function getOptions(): HatenaPluginOptions {
 const provider = new TreeDataProvider();
 
 export function activate() {
-  console.log("blogview activated");
   vscode.window.registerTreeDataProvider("blogview", provider);
   vscode.commands.registerCommand(
     "blogview.openEntry",
