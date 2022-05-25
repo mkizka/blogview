@@ -49,11 +49,7 @@ async function getChildEntryTreeItems(targetUri: vscode.Uri) {
   const files = await vscode.workspace.fs.readDirectory(targetUri);
   const promises = files.map(async ([filename, type]) => {
     const uri = vscode.Uri.joinPath(targetUri, filename);
-    const state =
-      type == vscode.FileType.Directory
-        ? vscode.TreeItemCollapsibleState.Collapsed
-        : vscode.TreeItemCollapsibleState.None;
-    return createEntryTreeItem(uri, state);
+    return createEntryTreeItem({ uri, type });
   });
   return Promise.all(promises);
 }
