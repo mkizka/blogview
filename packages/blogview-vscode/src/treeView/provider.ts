@@ -1,8 +1,8 @@
 import vscode from "vscode";
-import { getMeta } from "./meta";
+import { getMetaFromFile } from "./meta";
 
 import { EntryTreeItem } from "./item";
-import { compareVSCodeFile, isMaybeEntryFile, VSCodeFile } from "./file";
+import { compareVSCodeFile, isMarkdownFile, VSCodeFile } from "./file";
 
 function getWorkspaceFolderUri() {
   if (
@@ -25,8 +25,8 @@ async function readDirectory(targetUri: vscode.Uri) {
 async function getChildEntryTreeItems(targetUri: vscode.Uri) {
   const files = await readDirectory(targetUri);
   const promises = files.map(async (file: VSCodeFile) => {
-    if (isMaybeEntryFile(file)) {
-      file.meta = await getMeta(file.uri);
+    if (isMarkdownFile(file)) {
+      file.meta = await getMetaFromFile(file.uri);
     }
     return file;
   });

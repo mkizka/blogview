@@ -7,13 +7,13 @@ export type VSCodeFile = {
   uri: vscode.Uri;
 };
 
-export type VSCodeFileWithMeta = {
+export type VSCodeMarkdownFile = {
   type: vscode.FileType.File;
   uri: vscode.Uri;
   meta: BlogMeta | null;
 };
 
-export function isMaybeEntryFile(file: VSCodeFile): file is VSCodeFileWithMeta {
+export function isMarkdownFile(file: VSCodeFile): file is VSCodeMarkdownFile {
   return file.type == vscode.FileType.File && file.uri.path.endsWith(".md");
 }
 
@@ -22,10 +22,11 @@ function isPublished(meta: BlogMeta) {
 }
 
 function getPublishedDate(file: VSCodeFile) {
-  const meta = isMaybeEntryFile(file) ? file.meta : null;
+  const meta = isMarkdownFile(file) ? file.meta : null;
   return meta != null && isPublished(meta) ? meta.date : undefined;
 }
 
+// 優先順位：ディレクトリ → 日付が無いファイル → 下書きファイル → 日付が最近のファイル
 export function compareVSCodeFile(a: VSCodeFile, b: VSCodeFile) {
   const aDate = getPublishedDate(a);
   const bDate = getPublishedDate(b);
@@ -33,16 +34,9 @@ export function compareVSCodeFile(a: VSCodeFile, b: VSCodeFile) {
   if (aDate != undefined && bDate != undefined) {
     return bDate.getTime() - aDate.getTime();
   }
-  // 両方に日付が無いファイル同士は名前を比較
-  // ファイルタイプが異なる場合はディレクトリを優先
+  // 両方に日付が無いファイル同士ははディレクトリを優先
   if (aDate == undefined && bDate == undefined) {
-    if (a.type == b.type) {
-      const aFilename = path.basename(a.uri.path);
-      const bFilename = path.basename(b.uri.path);
-      return aFilename.localeCompare(bFilename);
-    } else {
-      return b.type - a.type;
-    }
+    return b.type - a.type;
   }
   // いずれかのみに日付があれば日付が無い方を返す
   return aDate == undefined ? -1 : 1;

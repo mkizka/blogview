@@ -1,6 +1,6 @@
 import vscode from "vscode";
 
-import { isMaybeEntryFile, VSCodeFile } from "./file";
+import { isMarkdownFile, VSCodeFile } from "./file";
 
 function getCollapsibleState(type: vscode.FileType) {
   return type == vscode.FileType.Directory
@@ -16,7 +16,7 @@ export class EntryTreeItem extends vscode.TreeItem {
       command: "blogview.openEntry",
       arguments: [file.uri],
     };
-    if (isMaybeEntryFile(file) && file.meta != null) {
+    if (isMarkdownFile(file) && file.meta != null) {
       this.label = file.meta.title;
       this.description = file.meta.draft
         ? "下書き"
