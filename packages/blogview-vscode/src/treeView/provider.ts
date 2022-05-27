@@ -1,6 +1,40 @@
 import vscode from "vscode";
+import { getMeta } from "./meta";
 
-import { createEntryTreeItem } from "./treeItem";
+import { EntryTreeItem } from "./item";
+import { compareVSCodeFile, isMaybeEntryFile, VSCodeFile } from "./file";
+
+function getWorkspaceFolderUri() {
+  if (
+    vscode.workspace.workspaceFolders &&
+    vscode.workspace.workspaceFolders.length > 0
+  ) {
+    return vscode.workspace.workspaceFolders[0].uri;
+  }
+  return null;
+}
+
+async function readDirectory(targetUri: vscode.Uri) {
+  const files = await vscode.workspace.fs.readDirectory(targetUri);
+  return files.map(([filename, type]) => {
+    const uri = vscode.Uri.joinPath(targetUri, filename);
+    return { uri, type };
+  });
+}
+
+async function getChildEntryTreeItems(targetUri: vscode.Uri) {
+  const files = await readDirectory(targetUri);
+  const promises = files.map(async (file: VSCodeFile) => {
+    if (isMaybeEntryFile(file)) {
+      file.meta = await getMeta(file.uri);
+    }
+    return file;
+  });
+  const filesWithMeta = await Promise.all(promises);
+  return filesWithMeta
+    .sort(compareVSCodeFile)
+    .map((file) => new EntryTreeItem(file));
+}
 
 export class TreeDataProvider
   implements vscode.TreeDataProvider<vscode.TreeItem>
@@ -33,23 +67,4 @@ export class TreeDataProvider
         : vscode.Uri.joinPath(rootUri, "entry");
     return getChildEntryTreeItems(targetUri);
   }
-}
-
-function getWorkspaceFolderUri() {
-  if (
-    vscode.workspace.workspaceFolders &&
-    vscode.workspace.workspaceFolders.length > 0
-  ) {
-    return vscode.workspace.workspaceFolders[0].uri;
-  }
-  return null;
-}
-
-async function getChildEntryTreeItems(targetUri: vscode.Uri) {
-  const files = await vscode.workspace.fs.readDirectory(targetUri);
-  const promises = files.map(async ([filename, type]) => {
-    const uri = vscode.Uri.joinPath(targetUri, filename);
-    return createEntryTreeItem({ uri, type });
-  });
-  return Promise.all(promises);
 }
