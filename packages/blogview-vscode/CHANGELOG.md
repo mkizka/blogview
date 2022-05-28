@@ -1,5 +1,11 @@
 # blogview-vscode
 
+## 1.5.0
+
+### Minor Changes
+
+- dc4108d: エクスプローラーに記事一覧を表示する機能を追加
+
 ## 1.4.2
 
 ### Patch Changes
