@@ -1,11 +1,29 @@
-name: テストとバージョン公開(VSCode)
+name: テストとバージョン公開
 
 on: push
 
 jobs:
+  test-npm:
+    name: テスト(npm)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 6
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          cache: "pnpm"
+      - name: 依存ライブラリのインストール
+        run: pnpm i
+      - name: テスト実行
+        run: pnpm test
+        env:
+          TZ: "Asia/Tokyo"
   # https://code.visualstudio.com/api/working-with-extensions/continuous-integration#github-actions
-  test:
-    name: テスト
+  test-vscode:
+    name: テスト(VSCode)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -24,13 +42,43 @@ jobs:
       - name: テスト実行(Linux以外)
         run: pnpm test-vscode
         if: runner.os != 'Linux'
-
-  release:
-    name: バージョン公開
+  release-npm:
+    name: バージョン公開(npm)
     runs-on: ubuntu-latest
     # https://github.community/t/github-actions-branch-conditional/16057/3
     if: github.ref == 'refs/heads/main'
-    needs: [test]
+    needs: [test-npm]
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          # https://github.com/changesets/action#with-publishing
+          fetch-depth: 0
+      - uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 6
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          cache: "pnpm"
+      - name: 依存ライブラリのインストール
+        run: pnpm i
+      - name: パッケージのビルド
+        run: pnpm build
+      - name: リリースPR作成 or npmに公開
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          publish: pnpm -r publish
+          version: pnpm new-version
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+  release-vscode:
+    name: バージョン公開(VSCode)
+    runs-on: ubuntu-latest
+    # https://github.community/t/github-actions-branch-conditional/16057/3
+    if: github.ref == 'refs/heads/main'
+    needs: [test-vscode]
     steps:
       - uses: actions/checkout@v2
         with:
