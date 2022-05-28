@@ -6,7 +6,7 @@
   "description": "Markdownプレビュー時に一部のはてな記法を変換する拡張機能",
   "version": "1.4.2",
   "engines": {
-    "vscode": "^1.63.0"
+    "vscode": "^1.67.0"
   },
   "categories": [
     "Other"
