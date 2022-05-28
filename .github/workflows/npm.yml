@@ -1,10 +1,10 @@
-name: テストとバージョン公開
+name: テストとバージョン公開(VSCode)
 
 on: push
 
 jobs:
-  test-packages:
-    name: テスト：ライブラリ
+  test:
+    name: テスト
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -22,34 +22,12 @@ jobs:
         env:
           TZ: "Asia/Tokyo"
 
-  # https://code.visualstudio.com/api/working-with-extensions/continuous-integration#github-actions
-  test-vscode:
-    name: テスト：VSCode
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: pnpm/action-setup@v2.0.1
-        with:
-          version: 6
-      - uses: actions/setup-node@v2
-        with:
-          node-version: 16
-          cache: "pnpm"
-      - name: 依存ライブラリのインストール
-        run: pnpm i
-      - name: テスト実行(Linux)
-        run: xvfb-run -a pnpm test-vscode
-        if: runner.os == 'Linux'
-      - name: テスト実行(Linux以外)
-        run: pnpm test-vscode
-        if: runner.os != 'Linux'
-
   release:
     name: バージョン公開
     runs-on: ubuntu-latest
     # https://github.community/t/github-actions-branch-conditional/16057/3
     if: github.ref == 'refs/heads/main'
-    needs: [test-packages, test-vscode]
+    needs: [test]
     steps:
       - uses: actions/checkout@v2
         with:
@@ -75,13 +53,3 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - name: blogview-vscodeのリリース
-        run: |
-          cd packages/blogview-vscode
-          PUBLISHED=$(pnpm vsce search blogview-vscode --json | jq -r '.[].versions[0].version')
-          CURRENT=$(cat package.json | jq -r '.version')
-          if [ "$PUBLISHED" != "$CURRENT" ]; then
-            pnpm release -- -p "$VSCE_TOKEN"
-          fi
-        env:
-          VSCE_TOKEN: ${{ secrets.VSCE_TOKEN }}
