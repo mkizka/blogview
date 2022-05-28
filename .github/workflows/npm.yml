@@ -1,4 +1,4 @@
-name: テストとバージョン公開(VSCode)
+name: テストとバージョン公開(npm)
 
 on: push
 
