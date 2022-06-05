@@ -1,0 +1,7 @@
+{
+  "name": "blogview-playground",
+  "private": true,
+  "dependencies": {
+    "blogview": "workspace:^1.4.2"
+  }
+}
