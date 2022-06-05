@@ -1,10 +1,14 @@
 import fs from "fs";
 import request from "supertest";
-import { describe, expect, test } from "vitest";
+import { beforeEach, describe, expect, test, vi } from "vitest";
 
 import { createApp } from "./app";
 import { optionsDefault } from "../utils/options";
 import { pkgPath } from "../utils/helper";
+
+beforeEach(() => {
+  vi.spyOn(process, "cwd").mockReturnValue(pkgPath("../playground"));
+});
 
 describe("GET /", async () => {
   test("ルートはdist/client/index.htmlを返す", async () => {
