@@ -1,5 +1,5 @@
 import vscode from "vscode";
-import { getMetaFromFile } from "./meta";
+import { getMetaFromText } from "./meta";
 
 import { EntryTreeItem } from "./item";
 import { compareVSCodeFile, isMarkdownFile, VSCodeFile } from "./file";
@@ -26,7 +26,10 @@ async function getChildEntryTreeItems(targetUri: vscode.Uri) {
   const files = await readDirectory(targetUri);
   const promises = files.map(async (file: VSCodeFile) => {
     if (isMarkdownFile(file)) {
-      file.meta = await getMetaFromFile(file.uri);
+      const content = await vscode.workspace.fs
+        .readFile(file.uri)
+        .then(new TextDecoder().decode);
+      file.meta = getMetaFromText(content);
     }
     return file;
   });

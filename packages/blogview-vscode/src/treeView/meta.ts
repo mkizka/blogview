@@ -1,8 +1,7 @@
-import vscode from "vscode";
 import yaml from "js-yaml";
 import { BlogMeta } from "markdown-it-hatena";
 
-function getMetaFromText(content: string) {
+export function getMetaFromText(content: string) {
   const lines = [];
   let isMeta = false;
   for (const line of content.split("\n")) {
@@ -11,14 +10,10 @@ function getMetaFromText(content: string) {
     }
     if (isMeta) lines.push(line);
   }
-  return lines.slice(1).join("\n");
-}
-
-export async function getMetaFromFile(uri: vscode.Uri) {
-  const content = await vscode.workspace.fs.readFile(uri);
-  const metaText = getMetaFromText(content.toString());
+  const metaText = lines.slice(1).join("\n");
   try {
-    return yaml.load(metaText) as BlogMeta;
+    const meta = yaml.load(metaText);
+    return typeof meta == "object" ? (meta as BlogMeta) : null;
   } catch {
     return null;
   }
