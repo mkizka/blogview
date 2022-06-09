@@ -50,7 +50,7 @@
     "dev": "nodemon",
     "package": "pnpm vsce package --no-dependencies",
     "release": "pnpm vsce publish --no-dependencies",
-    "test-vscode": "tsc -p tsconfig.test.json && node dist-test/runTest.js"
+    "test-vscode": "tsc -p tsconfig.test.json && node --enable-source-maps dist-test/test/runTest.js"
   },
   "devDependencies": {
     "@types/glob": "^7.2.0",

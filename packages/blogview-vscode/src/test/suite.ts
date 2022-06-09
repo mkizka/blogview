@@ -14,7 +14,7 @@ export async function run() {
     ui: "tdd",
     color: true,
   });
-  const files = await globby(path.join(__dirname, "../dist-test/**/*.spec.js"));
+  const files = await globby(path.join(__dirname, "../../**/*.spec.js"));
   for (const file of files) {
     mocha.addFile(file);
   }
