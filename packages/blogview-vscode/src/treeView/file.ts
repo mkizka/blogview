@@ -26,7 +26,7 @@ function getPublishedDate(file: VSCodeFile) {
   return meta != null && isPublished(meta) ? meta.date : undefined;
 }
 
-// 優先順位：ディレクトリ → 日付が無いファイル → 下書きファイル → 日付が最近のファイル
+// 優先順位：ディレクトリ → 日付が無いか下書きファイル → 日付が最近のファイル
 export function compareVSCodeFile(a: VSCodeFile, b: VSCodeFile) {
   const aDate = getPublishedDate(a);
   const bDate = getPublishedDate(b);
@@ -35,6 +35,7 @@ export function compareVSCodeFile(a: VSCodeFile, b: VSCodeFile) {
     return bDate.getTime() - aDate.getTime();
   }
   // 両方に日付が無いファイル同士ははディレクトリを優先
+  // ファイルやディレクトリ同士の場合はソートしない(0を返す)
   if (aDate == undefined && bDate == undefined) {
     return b.type - a.type;
   }
