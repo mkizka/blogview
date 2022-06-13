@@ -15,9 +15,8 @@ export function getOptions(): HatenaPluginOptions {
 const provider = new TreeDataProvider();
 
 export async function activate() {
-  try {
-    await vscode.workspace.fs.stat(vscode.Uri.file("entry"));
-  } catch {
+  const entries = await vscode.workspace.findFiles("entry/**/*.md");
+  if (entries.length == 0) {
     return;
   }
   vscode.commands.executeCommand(
