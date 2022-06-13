@@ -26,10 +26,8 @@ async function getChildEntryTreeItems(targetUri: vscode.Uri) {
   const files = await readDirectory(targetUri);
   const promises = files.map(async (file: VSCodeFile) => {
     if (isMarkdownFile(file)) {
-      const content = await vscode.workspace.fs
-        .readFile(file.uri)
-        .then(new TextDecoder().decode);
-      file.meta = getMetaFromText(content);
+      const content = await vscode.workspace.fs.readFile(file.uri);
+      file.meta = getMetaFromText(new TextDecoder().decode(content));
     }
     return file;
   });
