@@ -25,7 +25,8 @@
       "explorer": [
         {
           "id": "blogview",
-          "name": "記事一覧"
+          "name": "記事一覧",
+          "when": "blogview-vscode.activated"
         }
       ]
     },
