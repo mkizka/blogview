@@ -1,5 +1,11 @@
 # blogview-vscode
 
+## 1.5.3
+
+### Patch Changes
+
+- entry ディレクトリと md ファイルがある場合のみ動作するように
+
 ## 1.5.2
 
 ### Patch Changes
