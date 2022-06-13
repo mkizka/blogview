@@ -1,5 +1,11 @@
 # blogview-vscode
 
+## 1.5.2
+
+### Patch Changes
+
+- 記事ファイルのアイコンを整備
+
 ## 1.5.0
 
 ### Minor Changes
