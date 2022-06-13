@@ -16,11 +16,16 @@ export class EntryTreeItem extends vscode.TreeItem {
       command: "blogview.openEntry",
       arguments: [file.uri],
     };
+    this.iconPath =
+      file.type == vscode.FileType.Directory
+        ? new vscode.ThemeIcon("folder")
+        : new vscode.ThemeIcon("symbol-file");
     if (isMarkdownFile(file) && file.meta != null) {
       this.label = file.meta.title;
-      this.description = file.meta.draft
-        ? "下書き"
-        : file.meta.date?.toLocaleDateString();
+      this.description = file.meta.date?.toLocaleDateString();
+      if (file.meta.draft) {
+        this.iconPath = new vscode.ThemeIcon("pencil");
+      }
     }
   }
 }
