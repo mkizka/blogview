@@ -153,12 +153,6 @@ importers:
       typescript: 4.6.4
       vitest: 0.12.10
 
-  packages/playground:
-    specifiers:
-      blogview: workspace:^1.4.2
-    dependencies:
-      blogview: link:../blogview
-
 packages:
 
   /@ampproject/remapping/2.2.0:
