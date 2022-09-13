@@ -47,7 +47,7 @@
     }
   },
   "scripts": {
-    "build": "esbuild ./src/extension.ts --bundle --outdir=dist --external:vscode --format=cjs --platform=node --sourcemap",
+    "build": "node build.js",
     "dev": "nodemon",
     "package": "pnpm vsce package --no-dependencies",
     "release": "pnpm vsce publish --no-dependencies",
