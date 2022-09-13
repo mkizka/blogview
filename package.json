@@ -13,6 +13,5 @@
     "@changesets/cli": "^2.22.0",
     "prettier": "^2.6.2",
     "turbo": "^1.2.11"
-  },
-  "packageManager": "pnpm@6.28.0"
+  }
 }
