@@ -30,6 +30,32 @@
         }
       ]
     },
+    "commands": [
+      {
+        "command": "blogview.newEntry",
+        "title": "新規記事を追加",
+        "icon": "$(search-new-editor)"
+      },
+      {
+        "command": "blogview.refreshEntries",
+        "title": "再読み込み",
+        "icon": "$(extensions-sync-enabled)"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "blogview.newEntry",
+          "group": "navigation",
+          "when": "view == blogview"
+        },
+        {
+          "command": "blogview.refreshEntries",
+          "group": "navigation",
+          "when": "view == blogview"
+        }
+      ]
+    },
     "configuration": {
       "title": "Blogview",
       "properties": {

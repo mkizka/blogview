@@ -5,6 +5,7 @@ build({
   bundle: true,
   outdir: "dist",
   external: ["vscode", "svg-icons"],
+  loader: { ".md": "text" },
   format: "cjs",
   platform: "node",
   sourcemap: true,

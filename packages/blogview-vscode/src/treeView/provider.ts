@@ -1,18 +1,9 @@
 import vscode from "vscode";
-import { getMetaFromText } from "./meta";
 
+import { getMetaFromText } from "./meta";
 import { EntryTreeItem } from "./item";
 import { compareVSCodeFile, isMarkdownFile, VSCodeFile } from "./file";
-
-function getWorkspaceFolderUri() {
-  if (
-    vscode.workspace.workspaceFolders &&
-    vscode.workspace.workspaceFolders.length > 0
-  ) {
-    return vscode.workspace.workspaceFolders[0].uri;
-  }
-  return null;
-}
+import { getWorkspaceFolderUri } from "./workspace";
 
 async function readDirectory(targetUri: vscode.Uri) {
   const files = await vscode.workspace.fs.readDirectory(targetUri);
