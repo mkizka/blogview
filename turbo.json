@@ -12,6 +12,7 @@
       "dependsOn": ["markdown-it-hatena#build"]
     },
     "dev": {
+      "dependsOn": ["markdown-it-hatena#build"],
       "cache": false
     }
   }

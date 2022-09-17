@@ -1,5 +1,5 @@
 {
-  "ignore": ["dist", "dist-test"],
+  "ignore": ["dist/", "dist-test/"],
   "exec": "pnpm build",
   "ext": "ts,js,json"
 }
