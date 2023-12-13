@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { fileURLToPath } from "node:url";
 
 export function loadJson(filepath: string) {
   try {
@@ -10,7 +11,7 @@ export function loadJson(filepath: string) {
   }
 }
 
-const dirname = path.dirname(new URL(import.meta.url).pathname);
+const dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const pkgRootDir = path.join(dirname, "..", "..", "..");
 
