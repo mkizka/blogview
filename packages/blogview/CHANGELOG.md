@@ -1,5 +1,11 @@
 # blogview
 
+## 1.4.3
+
+### Patch Changes
+
+- 37320f3: Windows 環境での不具合修正
+
 ## 1.4.2
 
 ### Patch Changes
