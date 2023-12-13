@@ -9,8 +9,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v2
-        with:
-          version: 6
       - uses: actions/setup-node@v2
         with:
           node-version: 20
@@ -28,8 +26,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v2
-        with:
-          version: 6
       - uses: actions/setup-node@v2
         with:
           node-version: 20
@@ -54,8 +50,6 @@ jobs:
           # https://github.com/changesets/action#with-publishing
           fetch-depth: 0
       - uses: pnpm/action-setup@v2
-        with:
-          version: 6
       - uses: actions/setup-node@v2
         with:
           node-version: 20
@@ -85,8 +79,6 @@ jobs:
           # https://github.com/changesets/action#with-publishing
           fetch-depth: 0
       - uses: pnpm/action-setup@v2
-        with:
-          version: 6
       - uses: actions/setup-node@v2
         with:
           node-version: 20
