@@ -7,13 +7,13 @@ jobs:
     name: テスト(npm)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: pnpm/action-setup@v2.0.1
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v2
         with:
           version: 6
       - uses: actions/setup-node@v2
         with:
-          node-version: 16
+          node-version: 20
           cache: "pnpm"
       - name: 依存ライブラリのインストール
         run: pnpm i
@@ -26,13 +26,13 @@ jobs:
     name: テスト(VSCode)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: pnpm/action-setup@v2.0.1
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v2
         with:
           version: 6
       - uses: actions/setup-node@v2
         with:
-          node-version: 16
+          node-version: 20
           cache: "pnpm"
       - name: 依存ライブラリのインストール
         run: pnpm i
@@ -49,16 +49,16 @@ jobs:
     if: github.ref == 'refs/heads/main'
     needs: [test-npm]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           # https://github.com/changesets/action#with-publishing
           fetch-depth: 0
-      - uses: pnpm/action-setup@v2.0.1
+      - uses: pnpm/action-setup@v2
         with:
           version: 6
       - uses: actions/setup-node@v2
         with:
-          node-version: 16
+          node-version: 20
           cache: "pnpm"
       - name: 依存ライブラリのインストール
         run: pnpm i
@@ -80,16 +80,16 @@ jobs:
     if: github.ref == 'refs/heads/main'
     needs: [test-vscode]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           # https://github.com/changesets/action#with-publishing
           fetch-depth: 0
-      - uses: pnpm/action-setup@v2.0.1
+      - uses: pnpm/action-setup@v2
         with:
           version: 6
       - uses: actions/setup-node@v2
         with:
-          node-version: 16
+          node-version: 20
           cache: "pnpm"
       - name: 依存ライブラリのインストール
         run: pnpm i
