@@ -70,9 +70,11 @@ export function entryRouter(options: EntryRouterOptions) {
     }
   );
   router.get(
-    "/*",
+    "/*splat",
     async (req: express.Request, res: express.Response<EntryResponse>) => {
-      const entry = readRelativeFile(options.entry, `${req.params[0]}.md`);
+      const splat = req.params.splat;
+      const slug = Array.isArray(splat) ? splat.join("/") : splat;
+      const entry = readRelativeFile(options.entry, `${slug}.md`);
       if (entry != null) {
         res.json(renderHatenaMarkdown(entry, options));
       } else {

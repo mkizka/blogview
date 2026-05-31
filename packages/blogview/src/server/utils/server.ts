@@ -27,10 +27,15 @@ export async function startServer(
 
 export async function startLocalChangesWatcher(
   server: HttpServer,
-  watchPathGlob: string
+  watchDir: string
 ) {
   const wss = new WebSocketServer({ server });
-  const watcher = chokidar.watch(watchPathGlob);
+  // chokidar 4+ は glob を受け付けないのでディレクトリを監視し、
+  // ignored で .md 以外を除外する
+  const watcher = chokidar.watch(watchDir, {
+    ignored: (filepath, stats) =>
+      !!stats?.isFile() && !filepath.endsWith(".md"),
+  });
   watcher.on("change", (path) => {
     console.log(`ファイルが変更されました: ${path}`);
     wss.clients.forEach((client) => client.send("Should refresh"));

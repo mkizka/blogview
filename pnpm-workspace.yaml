@@ -5,4 +5,4 @@ allowBuilds:
   esbuild: false
   keytar: false
 overrides:
-  "@types/express-serve-static-core": "^4.19.8"
+  "@types/express-serve-static-core": "^5.1.1"
