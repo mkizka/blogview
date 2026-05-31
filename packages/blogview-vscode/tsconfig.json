@@ -3,7 +3,8 @@
   "compilerOptions": {
     "module": "commonjs",
     "rootDir": "src",
-    "noEmit": true
+    "noEmit": true,
+    "types": ["node", "mocha", "vscode"]
   },
   "include": ["src"],
   "exclude": ["**/*.spec.ts"]
