@@ -36,6 +36,9 @@ jobs:
     # https://github.community/t/github-actions-branch-conditional/16057/3
     if: github.ref == 'refs/heads/main'
     needs: [test-npm]
+    permissions:
+      contents: write
+      id-token: write
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
@@ -54,7 +57,6 @@ jobs:
           version: pnpm new-version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
   release-vscode:
     name: バージョン公開(VSCode)
     runs-on: ubuntu-latest
