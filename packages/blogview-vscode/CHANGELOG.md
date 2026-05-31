@@ -1,5 +1,13 @@
 # blogview-vscode
 
+## 1.5.4
+
+### Patch Changes
+
+- 6a9bfd3: VSCode 1.122.1 以降の組み込み Markdown プレビューが追加した front_matter プラグインとの衝突により「フロントマターを解析できませんでした」と表示される問題を修正
+- Updated dependencies [6a9bfd3]
+  - markdown-it-hatena@2.1.3
+
 ## 1.5.3
 
 ### Patch Changes

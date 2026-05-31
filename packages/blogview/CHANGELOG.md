@@ -1,5 +1,12 @@
 # blogview
 
+## 1.4.4
+
+### Patch Changes
+
+- Updated dependencies [6a9bfd3]
+  - markdown-it-hatena@2.1.3
+
 ## 1.4.3
 
 ### Patch Changes
