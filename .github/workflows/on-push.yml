@@ -82,4 +82,4 @@ jobs:
             pnpm release
           fi
         env:
-          VSCE_PAT: ${{ secrets.VSCE_TOKEN }}
+          VSCE_PAT: ${{ secrets.VSCE_PAT }}
