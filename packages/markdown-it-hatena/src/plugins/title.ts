@@ -54,14 +54,27 @@ function categories(categories: string[]) {
 `.trim();
 }
 
+// VSCode 1.122.1 以降の組み込み Markdown プレビューが同名の "front_matter" ブロックルールと
+// renderer を後から追加し、blogview が markdown-it-front-matter で設定した文字列 meta を
+// {content: string} 形式と誤認して yaml.parse(undefined) で落ちる。token type を独自名に
+// 差し替えることで衝突を避けつつ blogview 側の renderer を確実に呼ばせる。
+const HATENA_FRONT_MATTER = "hatena_front_matter";
+
 export const titlePlugin: PluginWithOptions<TitlePluginOptions> = (
   md,
   options
 ) => {
   const cb = options?.cb || noop;
   md.use(markdownItFrontMatter, (metaRaw) => cb(yaml.load(metaRaw)));
+  md.core.ruler.after("block", "hatena_front_matter_rename", (state) => {
+    for (const token of state.tokens) {
+      if (token.type === "front_matter") {
+        token.type = HATENA_FRONT_MATTER;
+      }
+    }
+  });
   if (options?.hideTitle) return;
-  md.renderer.rules.front_matter = (tokens, idx) => {
+  md.renderer.rules[HATENA_FRONT_MATTER] = (tokens, idx) => {
     const meta = yaml.load(tokens[idx].meta) as BlogMeta;
     return `
 <header class="entry-header">
