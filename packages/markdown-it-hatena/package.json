@@ -23,7 +23,7 @@
     "@types/node": "^22.19.0",
     "cheerio": "^1.2.0",
     "typescript": "^5.9.3",
-    "vitest": "^0.12.9"
+    "vitest": "^4.1.7"
   },
   "files": [
     "dist"

@@ -10,6 +10,7 @@ export default defineConfig({
   publicDir: path.join(__dirname, `${srcDirRoot}/public`),
   build: {
     outDir: path.join(__dirname, distDirRoot),
+    emptyOutDir: true,
   },
   plugins: [react()],
   server: {
