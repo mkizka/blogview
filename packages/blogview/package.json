@@ -21,7 +21,7 @@
     "@types/connect-history-api-fallback": "^1.5.4",
     "@types/express": "^5.0.6",
     "@types/markdown-it": "^14.1.2",
-    "@types/node": "^22.19.0",
+    "@types/node": "^25.9.1",
     "@types/react": "^19.2.15",
     "@types/react-dom": "^19.2.3",
     "@types/recursive-readdir": "^2.2.4",
@@ -39,7 +39,7 @@
     "rollup-plugin-string": "^3.0.0",
     "supertest": "^7.2.2",
     "ts-node": "^10.8.0",
-    "typescript": "^5.9.3",
+    "typescript": "^6.0.3",
     "vite": "^8.0.14",
     "vitest": "^4.1.7",
     "wait-on": "^6.0.1"

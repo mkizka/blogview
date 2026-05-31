@@ -3,7 +3,8 @@
     "module": "es2020",
     "target": "es2020",
     "esModuleInterop": true,
-    "moduleResolution": "node",
+    "moduleResolution": "node10",
+    "ignoreDeprecations": "6.0",
     "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
     "strict": true
