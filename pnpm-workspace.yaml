@@ -5,5 +5,4 @@ allowBuilds:
   esbuild: false
   keytar: false
 overrides:
-  "@types/linkify-it": "3.0.2"
   "@types/express-serve-static-core": "^4.19.8"

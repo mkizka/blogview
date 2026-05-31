@@ -1,5 +1,5 @@
 import type { PluginWithOptions } from "markdown-it";
-import { escapeHtml } from "markdown-it/lib/common/utils";
+import MarkdownIt from "markdown-it";
 
 import {
   HatenaNotation,
@@ -7,6 +7,8 @@ import {
   parseHatenaNotation,
 } from "../utils/parser";
 import { isTwitter, isYouTube } from "../utils/validator";
+
+const { escapeHtml } = MarkdownIt().utils;
 
 function renderLink(notation: HatenaNotationLink, options?: LinkPluginOptions) {
   return notation.options
@@ -72,7 +74,12 @@ export const linkPlugin: PluginWithOptions<LinkPluginOptions> = (
   md.inline.ruler2.push("markdown-it-hatena--link", (state) => {
     const parsed = parseHatenaNotation(state.src);
     if (parsed.filter((item) => item.type == "link").length >= 1) {
-      state.tokens[0].type = "text_with_hatena_link";
+      // markdown-it 14 で linkify がトークンを分割するため、
+      // 全トークンを 1 つの text_with_hatena_link に置き換える
+      const token = new state.Token("text_with_hatena_link", "", 0);
+      token.content = state.src;
+      state.tokens.length = 0;
+      state.tokens.push(token);
     }
     return false;
   });
