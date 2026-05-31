@@ -47,7 +47,7 @@ function categories(categories: string[]) {
     ${categories
       .map(
         (category: string) =>
-          `<a href="" class="entry-category-link category-${category}">${category}</a>`
+          `<a href="" class="entry-category-link category-${category}">${category}</a>`,
       )
       .join("\n    ")}
   </div>
@@ -62,7 +62,7 @@ const HATENA_FRONT_MATTER = "hatena_front_matter";
 
 export const titlePlugin: PluginWithOptions<TitlePluginOptions> = (
   md,
-  options
+  options,
 ) => {
   const cb = options?.cb || noop;
   md.use(markdownItFrontMatter, (metaRaw: string) => cb(yaml.load(metaRaw)));

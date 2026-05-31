@@ -27,7 +27,7 @@ export function getOptions(argv?: string[]) {
       "--no-twitter": Boolean,
       "--no-youtube": Boolean,
     },
-    { permissive: true, argv }
+    { permissive: true, argv },
   );
 
   const optionsFromArgs = removeUndefinedField({
@@ -38,7 +38,7 @@ export function getOptions(argv?: string[]) {
   });
 
   const optionsFromConfig = loadJson(
-    path.join(process.cwd(), args["--config"] || "blogview.json")
+    path.join(process.cwd(), args["--config"] || "blogview.json"),
   );
 
   return {

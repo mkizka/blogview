@@ -8,7 +8,7 @@ const HotReloadContext = createContext<{ reloadedAt: ReloadedAt }>({
 });
 
 export const HotReloadRoot: React.FC<{ children: React.ReactNode }> = (
-  props
+  props,
 ) => {
   const [reloadedAt, setReloadedAt] = useState<ReloadedAt>(0);
 

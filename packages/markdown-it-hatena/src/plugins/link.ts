@@ -69,7 +69,7 @@ const render = (notation: HatenaNotation, options?: LinkPluginOptions) => {
 
 export const linkPlugin: PluginWithOptions<LinkPluginOptions> = (
   md,
-  options
+  options,
 ) => {
   md.inline.ruler2.push("markdown-it-hatena--link", (state) => {
     const parsed = parseHatenaNotation(state.src);

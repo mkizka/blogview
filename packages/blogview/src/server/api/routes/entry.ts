@@ -64,10 +64,10 @@ export function entryRouter(options: EntryRouterOptions) {
       const entryMetas = await Promise.all(entryMetaPromises);
       const sortedEntryMetas = entryMetas.sort(
         (a, b) =>
-          new Date(b.meta.date!).getTime() - new Date(a.meta.date!).getTime()
+          new Date(b.meta.date!).getTime() - new Date(a.meta.date!).getTime(),
       );
       res.json(sortedEntryMetas);
-    }
+    },
   );
   router.get(
     "/*splat",
@@ -80,7 +80,7 @@ export function entryRouter(options: EntryRouterOptions) {
       } else {
         res.status(404).send();
       }
-    }
+    },
   );
   return router;
 }

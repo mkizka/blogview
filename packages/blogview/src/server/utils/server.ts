@@ -6,7 +6,7 @@ import chokidar from "chokidar";
 
 export async function startServer(
   app: Express,
-  port: number
+  port: number,
 ): Promise<HttpServer> {
   const server = createServer(app);
   return new Promise((resolve, reject) => {
@@ -27,7 +27,7 @@ export async function startServer(
 
 export async function startLocalChangesWatcher(
   server: HttpServer,
-  watchDir: string
+  watchDir: string,
 ) {
   const wss = new WebSocketServer({ server });
   // chokidar 4+ は glob を受け付けないのでディレクトリを監視し、

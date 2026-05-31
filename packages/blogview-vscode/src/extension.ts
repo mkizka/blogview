@@ -22,7 +22,7 @@ export async function activate() {
   vscode.commands.executeCommand(
     "setContext",
     "blogview-vscode.activated",
-    true
+    true,
   );
   vscode.window.registerTreeDataProvider("blogview", provider);
   vscode.commands.registerCommand(
@@ -30,10 +30,10 @@ export async function activate() {
     async (uri: vscode.Uri) => {
       const doc = await vscode.workspace.openTextDocument(uri);
       await vscode.window.showTextDocument(doc, vscode.ViewColumn.One, true);
-    }
+    },
   );
   vscode.commands.registerCommand("blogview.refreshEntries", () =>
-    provider.refresh()
+    provider.refresh(),
   );
   vscode.workspace.onDidSaveTextDocument(() => provider.refresh());
   vscode.workspace.onDidCreateFiles(() => provider.refresh());

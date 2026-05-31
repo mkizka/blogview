@@ -12,7 +12,7 @@ test("埋め込み記法[{url}:embed]の対応", () => {
   const $ = cheerio.load(rendered);
   expect($("iframe").length).toBe(1);
   expect($("iframe").attr("src")).toBe(
-    "https://hatenablog-parts.com/embed?url=https%3A%2F%2Fgithub.com"
+    "https://hatenablog-parts.com/embed?url=https%3A%2F%2Fgithub.com",
   );
 });
 
@@ -42,7 +42,7 @@ test("設定がfalseのときはYouTube埋め込みしない", () => {
   const rendered = md.use(linkPlugin, { youtube: false }).render(src);
   const $ = cheerio.load(rendered);
   expect($("iframe").attr("src")).not.toBe(
-    "https://www.youtube.com/embed/12345"
+    "https://www.youtube.com/embed/12345",
   );
 });
 

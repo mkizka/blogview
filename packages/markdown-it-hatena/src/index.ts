@@ -10,7 +10,7 @@ export type HatenaPluginOptions = LinkPluginOptions & TitlePluginOptions;
 
 export const markdownItHatena: PluginWithOptions<HatenaPluginOptions> = (
   md,
-  options
+  options,
 ) => {
   md.use(titlePlugin, options).use(linkPlugin, options).use(contentsPlugin);
 };

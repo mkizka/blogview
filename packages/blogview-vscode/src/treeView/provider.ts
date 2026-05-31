@@ -37,9 +37,7 @@ async function getChildEntryTreeItems(targetUri: vscode.Uri) {
     .map((file) => new EntryTreeItem(file));
 }
 
-export class TreeDataProvider
-  implements vscode.TreeDataProvider<vscode.TreeItem>
-{
+export class TreeDataProvider implements vscode.TreeDataProvider<vscode.TreeItem> {
   private _onDidChangeTreeData =
     new vscode.EventEmitter<vscode.TreeItem | void>();
   readonly onDidChangeTreeData = this._onDidChangeTreeData.event;
@@ -56,7 +54,7 @@ export class TreeDataProvider
     const rootUri = getWorkspaceFolderUri();
     if (rootUri == null) {
       vscode.window.showInformationMessage(
-        "ワークスペースを取得できませんでした。"
+        "ワークスペースを取得できませんでした。",
       );
       return null;
     }

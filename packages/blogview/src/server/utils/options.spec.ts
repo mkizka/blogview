@@ -7,7 +7,7 @@ import { getOptions, Options } from "./options";
 function writeConfig(config: Options, filename?: string) {
   fs.writeFileSync(
     path.join(process.cwd(), filename || "blogview.json"),
-    JSON.stringify(config, null, 2)
+    JSON.stringify(config, null, 2),
   );
 }
 
@@ -61,7 +61,7 @@ describe("getOptions", () => {
         "b.css",
         "--no-twitter",
         "--no-youtube",
-      ])
+      ]),
     ).toEqual({
       entry: "foo",
       styles: ["a.css", "b.css"],

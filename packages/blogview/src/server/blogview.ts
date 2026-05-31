@@ -14,7 +14,7 @@ export async function blogview() {
       "--version": Boolean,
       "-v": "--version",
     },
-    { permissive: true }
+    { permissive: true },
   );
   if (args["--help"]) {
     showHelp();

@@ -17,7 +17,7 @@ export function configRouter(options: ConfigRouterOptions) {
         .filter((path) => fs.existsSync(path))
         .map((path) => fs.readFileSync(path, "utf-8"));
       res.send({ styles });
-    }
+    },
   );
   return router;
 }

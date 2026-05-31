@@ -10,7 +10,7 @@ describe("GET /", async () => {
   test("ルートはdist/client/index.htmlを返す", async () => {
     const indexHtml = fs.readFileSync(
       pkgPath("dist/client/index.html"),
-      "utf-8"
+      "utf-8",
     );
     const app = createApp(optionsDefault);
     const root = await request(app).get("/");

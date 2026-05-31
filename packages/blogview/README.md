@@ -31,7 +31,7 @@ blogview.json というファイルに設定を記述出来ます。設定はコ
   // プレビューでツイート埋め込みを変換するかどうか CLIでは --no-twitter
   "twitter": true,
   // プレビューでYouTube埋め込みを変換するかどうか CLIでは --no-twitter
-  "youtube": false
+  "youtube": false,
 }
 ```
 

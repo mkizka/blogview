@@ -17,7 +17,7 @@ export function createApp(options: AppOptions) {
       setHeaders: (res) => {
         res.setHeader("Cache-Control", "no-store, no-cache, must-revalidate");
       },
-    })
+    }),
   );
   return app;
 }
