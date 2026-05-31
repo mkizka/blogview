@@ -65,7 +65,7 @@ export const titlePlugin: PluginWithOptions<TitlePluginOptions> = (
   options
 ) => {
   const cb = options?.cb || noop;
-  md.use(markdownItFrontMatter, (metaRaw) => cb(yaml.load(metaRaw)));
+  md.use(markdownItFrontMatter, (metaRaw: string) => cb(yaml.load(metaRaw)));
   md.core.ruler.after("block", "hatena_front_matter_rename", (state) => {
     for (const token of state.tokens) {
       if (token.type === "front_matter") {

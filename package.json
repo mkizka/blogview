@@ -14,5 +14,10 @@
     "prettier": "^2.6.2",
     "turbo": "^1.2.11"
   },
-  "packageManager": "pnpm@8.5.1"
+  "packageManager": "pnpm@8.5.1",
+  "pnpm": {
+    "overrides": {
+      "@types/linkify-it": "3.0.2"
+    }
+  }
 }

@@ -1,5 +1,5 @@
 import { test, expect } from "vitest";
-import cheerio from "cheerio";
+import * as cheerio from "cheerio";
 
 import { linkPlugin } from "./link";
 import { createMarkdownIt } from "../utils/md";
