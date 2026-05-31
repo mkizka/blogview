@@ -10,9 +10,9 @@
     "new-version": "changeset version && pnpm format"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.22.0",
+    "@changesets/cli": "^2.31.0",
     "prettier": "^2.6.2",
-    "turbo": "^1.2.11"
+    "turbo": "^2.9.16"
   },
   "packageManager": "pnpm@11.5.0"
 }
