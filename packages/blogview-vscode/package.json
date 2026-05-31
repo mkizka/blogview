@@ -54,22 +54,22 @@
     "test-vscode": "tsc -p tsconfig.test.json && node --enable-source-maps dist-test/test/runTest.js"
   },
   "devDependencies": {
-    "@types/glob": "^7.2.0",
+    "@types/glob": "^9.0.0",
     "@types/js-yaml": "^4.0.9",
     "@types/markdown-it": "^14.1.2",
-    "@types/mocha": "^9.1.1",
+    "@types/mocha": "^10.0.10",
     "@types/node": "~22.19.0",
-    "@types/vscode": "1.67.0",
+    "@types/vscode": "1.120.0",
     "@vscode/test-electron": "^2.5.2",
-    "esbuild": "^0.14.39",
-    "mocha": "^10.0.0",
-    "nodemon": "^2.0.16",
+    "esbuild": "^0.28.0",
+    "mocha": "^11.7.6",
+    "nodemon": "^3.1.14",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3",
-    "vsce": "^2.8.0"
+    "vsce": "^2.15.0"
   },
   "dependencies": {
-    "glob": "^8.0.3",
+    "glob": "^13.0.6",
     "js-yaml": "^4.1.0",
     "markdown-it-hatena": "workspace:*"
   },

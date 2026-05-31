@@ -1,12 +1,6 @@
 import path from "path";
 import Mocha from "mocha";
-import glob from "glob";
-
-async function globby(pattern: string) {
-  return new Promise<string[]>((resolve) => {
-    glob(pattern, (_, matches) => resolve(matches));
-  });
-}
+import { glob } from "glob";
 
 export async function run() {
   // Create the mocha test
@@ -14,7 +8,7 @@ export async function run() {
     ui: "tdd",
     color: true,
   });
-  const files = await globby(path.join(__dirname, "../../**/*.spec.js"));
+  const files = await glob(path.join(__dirname, "../../**/*.spec.js"));
   for (const file of files) {
     mocha.addFile(file);
   }
