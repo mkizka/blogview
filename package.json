@@ -7,7 +7,7 @@
     "test-vscode": "turbo run test-vscode",
     "dev": "turbo run dev",
     "format": "prettier -w .",
-    "new-version": "changeset version && pnpm format && pnpm i --ignore-scripts"
+    "new-version": "changeset version && pnpm format"
   },
   "devDependencies": {
     "@changesets/cli": "^2.22.0",

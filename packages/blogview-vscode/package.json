@@ -71,7 +71,7 @@
   "dependencies": {
     "glob": "^8.0.3",
     "js-yaml": "^4.1.0",
-    "markdown-it-hatena": "workspace:2.1.2"
+    "markdown-it-hatena": "workspace:*"
   },
   "keywords": [
     "markdown",
