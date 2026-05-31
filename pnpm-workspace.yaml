@@ -1,2 +1,9 @@
 packages:
   - "packages/*"
+allowBuilds:
+  "@swc/core": true
+  esbuild: true
+  keytar: true
+overrides:
+  "@types/linkify-it": "3.0.2"
+  "@types/express-serve-static-core": "^4.19.8"
